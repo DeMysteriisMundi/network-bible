@@ -19,20 +19,6 @@ More: https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engi
 **IEEE 802** - is a family of IEEE standards dealing with local area networks and metropolitan area networks. The services and protocols specified in IEEE 802 map to the lower two layers (Data Link and Physical) of the seven-layer OSI networking reference model. In fact, IEEE 802 splits the OSI Data Link Layer into two sub-layers named logical link control (LLC) and media access control (MAC).
 More: https://en.wikipedia.org/wiki/IEEE_802
 
-### Models
-
-#### OSI
-
-**OSI** - just a standard model.
-
-![osi](images/models/osi.png)
-
-#### TCP/IP
-
-**TCP/IP** - practical model.
-
-![tcp-ip](images/models/tcp-ip.jpg)
-
 ### Topologies
 
 **Physical Topologies** - how nodes are physically placed and connected.
@@ -118,5 +104,31 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 - is a mix of previous topologies with their advantages and disadvantages
 - beautiful
 
+### Models
 
+#### OSI
+
+**OSI** - conceptual model of network protocols and standards used as a general model.
+
+![osi](images/models/osi.png)
+
+#### TCP/IP
+
+**TCP/IP** - conceptual model of network protocols and standards used as a practical model.
+
+![tcp-ip](images/models/tcp-ip.jpg)
+
+### Networks
+
+#### Peer-to-Peer
+
+**Peer-to-Peer** - computing or networking is a distributed application architecture that partitions tasks or workloads between peers. Peers are equally privileged, equipotent participants in the application (node as a client and server both). They are said to form a peer-to-peer network of nodes. Uses *Partial-Mesh*, *Full-Mesh* and *Ring* topologies.
+
+![p2p](images/networks/p2p.jpg)
+
+#### Client-Server
+
+**Client-Server** - is a distributed application structure that partitions tasks or workloads between the providers of a resource or service, called servers, and service requesters, called clients. Uses *Star* and *Bus* topologies.
+
+![client-server](images/networks/client-server.jpg)
 
