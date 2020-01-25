@@ -25,13 +25,13 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 **OSI** - just a standard model.
 
-![osi](/home/leschev/Projects/networks-book/images/models/osi.png)
+![osi](images/models/osi.png)
 
 #### TCP/IP
 
 **TCP/IP** - practical model.
 
-![tcp-ip](/home/leschev/Projects/networks-book/images/models/tcp-ip.jpg)
+![tcp-ip](images/models/tcp-ip.jpg)
 
 ### Topologies
 
@@ -41,7 +41,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 #### Bus Topology
 
-![bus-topology](/home/leschev/Projects/networks-book/images/topologies/bus-topology.jpg)
+![bus-topology](images/topologies/bus-topology.jpg)
 
 **+**:
 
@@ -53,7 +53,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 #### Ring Topology
 
-![ring-topology](/home/leschev/Projects/networks-book/images/topologies/ring-topology.jpg)
+![ring-topology](images/topologies/ring-topology.jpg)
 
 **+**:
 
@@ -67,7 +67,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 #### Star Topology
 
-![star-topology](/home/leschev/Projects/networks-book/images/topologies/star-topology.jpg)
+![star-topology](images/topologies/star-topology.jpg)
 
 
 
@@ -83,7 +83,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 #### Full-Mesh Topology
 
-![full-mesh-topology](/home/leschev/Projects/networks-book/images/topologies/full-mesh-topology.jpg)
+![full-mesh-topology](images/topologies/full-mesh-topology.jpg)
 
 **+**:
 
@@ -97,7 +97,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 #### Partial-Mesh Topology
 
-![partial-mesh-topology](/home/leschev/Projects/networks-book/images/topologies/partial-mesh-topology.jpg)
+![partial-mesh-topology](images/topologies/partial-mesh-topology.jpg)
 
 **+**:
 
@@ -111,7 +111,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802
 
 #### Hybrid Topology
 
-![hybrid-topology](/home/leschev/Projects/networks-book/images/topologies/hybrid-topology.jpg)
+![hybrid-topology](images/topologies/hybrid-topology.jpg)
 
 **+/-**:
 
