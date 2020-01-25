@@ -132,7 +132,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 **Peer-to-Peer** - computing or networking is a distributed application architecture that partitions tasks or workloads between peers. Peers are equally privileged, equipotent participants in the application (node as a client and server both). They are said to form a peer-to-peer network of nodes. Uses *Partial-Mesh*, *Full-Mesh* and *Ring* topologies.
 
-![p2p](images/networks/p2p.jpg)
+![p2p](images/networks-architectures/p2p.jpg)
 
 More: https://en.wikipedia.org/wiki/Peer-to-peer
 
@@ -142,7 +142,7 @@ More: https://en.wikipedia.org/wiki/Peer-to-peer
 
 **Client-Server** - is a distributed application structure that partitions tasks or workloads between the providers of a resource or service, called servers, and service requesters, called clients. Uses *Star* and *Bus* topologies.
 
-![client-server](images/networks/client-server.jpg)
+![client-server](images/networks-architectures/client-server.jpg)
 
 More: https://en.wikipedia.org/wiki/Client%E2%80%93server_model
 
