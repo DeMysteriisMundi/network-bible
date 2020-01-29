@@ -224,7 +224,7 @@ Data Link layer uses *frames* as a *data unit*. *IEEE 802.2* introduced separati
 - LLC2 - with connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
 - LLC3 - without connection but with confirmation. Used when high speed and knowledge of whether control information has reached the object is needed.
 
-*LLC* frame contains 3 new headers:
+LLC header contains 3 fields:
 
 |  DSAP  |  SSAP  | CONTROL |
 | :----: | :----: | :-----: |
@@ -353,11 +353,29 @@ Tasks:
 
 ##### Traffic Tagging
 
-When sending traffic to the network, the computer does not even know in which VLAN it is located. This is what the switch thinks. The switch knows that the computer that is connected to a specific port is in the corresponding VLAN. The traffic arriving at the port of a particular VLAN is no different from the traffic of another VLAN. In other words, there is no information about traffic belonging to a specific VLAN in it.
+The most common way to mark this is described in the open IEEE 802.1Q standard. There are also proprietary protocols that solve similar problems, for example, the *ISL* protocol from *Cisco Systems*, but their popularity is much lower (and declining).
 
-However, if traffic from different VLANs can come through the port, the switch must somehow distinguish it. To do this, each frame of the traffic must be marked in some special way. The tag should talk about which VLAN traffic belongs to.
+Mark added to frame by adding the special *Dot1q* header front of *EType* header (in Ethernet II standard). This header contains 4 fields:
 
-The most common way to mark this is described in the open IEEE 802.1Q standard. There are proprietary protocols that solve similar problems, for example, the *ISL* protocol from *Cisco Systems*, but their popularity is much lower (and declining).
+|   TPID   | Priority |  CFI   |   VID    |
+| :------: | :------: | :----: | :------: |
+| 16 bytes | 3 bytes  | 1 byte | 12 bytes |
+
+- TPID (*Tag Protocol Identifier*) - identifier of tag protocol. For Dot1q used value 0x8100.
+- Priority - traffic priority
+- CFI (*Canonical Format Indicator*) - indicates to MAC address format. 0 - canonical, 1 - non-canonical.
+- VID (*VLAN Identifier*) - VLAN number
+
+##### Access and Trunk ports
+
+There are 2 ports type:
+
+- Access - tagging port
+- Trunk - non-tagging port
+
+Access port links to terminal devices and transmits untagged traffic. It just removes tag when transmits frame to terminal device and adds tag when receives frame from terminal device. If VLAN not assigned to access port, then *Native VLAN* (default, but untagged VLAN) is used.
+
+Trunk port links the network devices. This port doesn't removes the tag, it decides what have to do with received (from linked network device) frame based on frame tag. If frame is tagged and frame VLAN is equal to trunk port VLAN, then frame will be transmitted on. Untagged frames are discarded.
 
 More: http://xgu.ru/wiki/VLAN
 
