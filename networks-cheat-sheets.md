@@ -18,11 +18,17 @@ More: https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engi
 
 ### Standards
 
-**IEEE 802** - is a family of IEEE standards dealing with local area networks and metropolitan area networks. The services and protocols specified in IEEE 802 map to the lower two layers (Data Link and Physical) of the seven-layer OSI networking reference model. In fact, IEEE 802 splits the OSI Data Link Layer into two sub-layers named logical link control (LLC) and media access control (MAC).
+**IEEE 802** - is a family of IEEE standards dealing with local area networks and metropolitan area networks. The services and protocols specified in IEEE 802 map to the lower two layers (Data Link and Physical) of the seven-layer OSI networking reference model.
 More: https://en.wikipedia.org/wiki/IEEE_802
 
-**IEEE 802.1Q** - is often referred to as **Dot1q**, is the networking standard that supports virtual LANs (VLANs) on an IEEE 802.3 Ethernet network. The standard defines a system of **VLAN tagging** for Ethernet frames and the accompanying procedures to be used by bridges and switches in handling such frames. The standard also contains provisions for a quality-of-service prioritization scheme commonly known as IEEE 802.1p and defines the Generic Attribute Registration Protocol.
+**IEEE 802.3** - ...
+
+**IEEE 802.2** - ...
+
+**IEEE 802.1Q** (or *Dot1q*) - is the networking standard that supports virtual LANs (or *VLANs*) on an IEEE 802.3 Ethernet network. The standard defines a system of *VLAN tagging* for Ethernet frames and the accompanying procedures to be used by bridges and switches in handling such frames. The standard also contains provisions for a quality-of-service prioritization scheme commonly known as IEEE 802.1p and defines the Generic Attribute Registration Protocol.
 More: http://xgu.ru/wiki/802.1Q
+
+**IEEE 802.1ad** (or *QinQ*) - ...
 
 ---
 
@@ -32,8 +38,8 @@ More: http://xgu.ru/wiki/802.1Q
 
 ### Topologies
 
-**Physical Topologies** - it is how nodes are physically placed and connected.
-**Logical Topologies** - it is how data goes in the physical topology.
+**Physical Topologies** (*L1*) - it is how nodes are physically placed and connected.
+**Logical Topologies** (*L2/L3*) - it is how data goes in the physical topology.
 
 #### Bus Topology
 
@@ -126,25 +132,17 @@ More: http://xgu.ru/wiki/802.1Q
 
 ---
 
-### Networks Architecture
+### Network Architectures
 
-#### Peer-to-Peer
+#### Three-tier architecture
 
-**Peer-to-Peer** - is a distributed application architecture that partitions tasks or workloads between peers. Peers are equally privileged, equipotent participants in the application (node as a client and server both). They are said to form a *peer-to-peer* network of nodes. Uses *Partial-Mesh*, *Full-Mesh* and *Ring* topologies.
-
-![p2p](images/networks-architectures/p2p.jpg)
-
-More: https://en.wikipedia.org/wiki/Peer-to-peerstructure
+...
 
 ---
 
-#### Client-Server
+#### Leaf Spine
 
-**Client-Server** - is a distributed application architecture that partitions tasks or workloads between the providers of a resource or service, called servers, and service requesters, called clients. Uses *star* and *bus* topologies.
-
-![client-server](images/networks-architectures/client-server.jpg)
-
-More: https://en.wikipedia.org/wiki/Client%E2%80%93server_model
+...
 
 ---
 
@@ -159,25 +157,37 @@ More: https://en.wikipedia.org/wiki/Client%E2%80%93server_model
 
 ...
 
+---
+
 #### Data-link
 
 ...
+
+---
 
 #### Network
 
 ...
 
+---
+
 #### Transport
 
 ...
+
+---
 
 #### Session
 
 ...
 
+---
+
 #### Presentation
 
 ...
+
+---
 
 #### Application 
 
