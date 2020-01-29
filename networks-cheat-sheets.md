@@ -18,17 +18,17 @@ More: https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engi
 
 ### Standards
 
-**IEEE 802** - is a family of IEEE standards dealing with local area networks and metropolitan area networks. The services and protocols specified in IEEE 802 map to the lower two layers (Data Link and Physical) of the seven-layer OSI networking reference model.
+**IEEE 802** - is a family of IEEE standards dealing with *local area networks* and *metropolitan area networks*. The services and protocols specified in IEEE 802 map to the Data Link and Physical layers of the seven-layer OSI networking reference model.
 More: https://en.wikipedia.org/wiki/IEEE_802
 
 **IEEE 802.3** - ...
 
 **IEEE 802.2** - ...
 
-**IEEE 802.1Q** (or *Dot1q*) - is the networking standard that supports virtual LANs (or *VLANs*) on an IEEE 802.3 Ethernet network. The standard defines a system of *VLAN tagging* for Ethernet frames and the accompanying procedures to be used by bridges and switches in handling such frames. The standard also contains provisions for a quality-of-service prioritization scheme commonly known as IEEE 802.1p and defines the Generic Attribute Registration Protocol.
+**IEEE 802.1Q** (or *Dot1q*) - is the networking standard that supports *virtual LANs* (or *VLANs*) on an IEEE 802.3 Ethernet network. The standard defines a system of *VLAN tagging* for Ethernet frames and the accompanying procedures to be used by bridges and switches in handling such frames. The standard also contains provisions for a quality-of-service prioritization scheme commonly known as IEEE 802.1p and defines the Generic Attribute Registration Protocol.
 More: http://xgu.ru/wiki/802.1Q
 
-**IEEE 802.1ad** (or *QinQ*) - ...
+**IEEE 802.1AD** (or *QinQ*) - ...
 
 ---
 
@@ -211,10 +211,10 @@ More: http://xgu.ru/wiki/%D0%A1%D0%B5%D1%82%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BC%D0%BE
 
 #### About Data Link Layer
 
-Data Link layer uses *frames* as a data unit. *IEEE 802.2* introduced separation of *Data Link* layer to *MAC* and *LLC* sublayers:
+Data Link layer uses *frames* as a *data unit*. *IEEE 802.2* introduced separation of Data Link layer to *MAC* and *LLC* sublayers:
 
-- MAC (Media Access Control) - controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
-- LLC (Logical Link Control) - used for relations with L3. LLC frame may be of 3 types: *informational*, *managerial*, *unnumbered*.
+- MAC (*Media Access Control*) - controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
+- LLC (*Logical Link Control*) - used for relations with L3. LLC frame may be of 3 types: *informational*, *managerial*, *unnumbered*.
 
 ##### LLC
 
@@ -230,96 +230,15 @@ Data Link layer uses *frames* as a data unit. *IEEE 802.2* introduced separation
 | :----: | :----: | :-----: |
 | 1 byte | 1 byte | 1 byte  |
 
-- DSAP (Destination Service Access Point) - indicates protocol that gets the frame (on the receiving side)
-- SSAP (Source Service Access Point) - indicates protocol that sends the frame (on the receiving side)
+- DSAP (*Destination Service Access Point*) - indicates protocol that gets the frame (on the receiving side)
+- SSAP (*Source Service Access Point*) - indicates protocol that sends the frame (on the receiving side)
 - Control - indicates if *connection-less* or *connection-oriented* frame
 
 ---
 
-#### Token RIng
+#### Switching Principle
 
-...
-
----
-
-#### FDDI
-
-...
-
----
-
-#### Ethernet
-
-There are several *Ethernet* frame types:
-
-- Ethernet II (IEEE 802.3)
-- Ethernet LLC (IEEE 802.3/802.2)
-- Ethernet LLC/SNAP (IEEE 802.3/802.2 SNAP)
-
-##### Ethernet II
-
-![ethernet2](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet2.jpg)
-
-*Ethernet II* frame includes the next headers:
-
-- Preamble - is necessary for physics signal synchronization
-- DA - MAC destination address
-- SA - MAC source address
-- E-Type - type of L3 payload
-- Payload - encapsulated L3 packet. If size < 46 bytes, then filled to 46 bytes. It required for correct collisions identifying.
-- FCS - frame check system, codes of correction
-
----
-
-##### Ethernet LLC
-
-![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc.jpg)
-
-Here *LLC* headers is added, described by *IEEE 802.2*.
-
-*Ethernel LLC* frame includes the next headers:
-
-- Preamble
-- SFD (Start Frame Delimeter) - Indicates about frame beginning
-- DA
-- SA
-- Length - length from this header to the end of frame
-- DSAP
-- SSAP
-- Control
-- Payload
-- FCS
-
----
-
-##### Ethernet LLC/SNAP
-
-![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc-snap.jpg)
-
-The previous type of *Ethernet* frame contained the only 128 of possible *L3* protocols. *SNAP* headers expand number of pointed protocols, for example, any proprietary protocols.
-
-![snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/snap.jpg)
-
-*Ethernel LLC/SNAP* frame includes the next headers:
-
-- Preamble
-- SFD
-- DA
-- SA
-- Length
-- DSAP
-- SSAP
-- Control
-- OUI (Organizationally Unique Identifier) - indicates organization identifier
-- PID (Protocol ID) - indicates L3 protocol
-- Payload
-- FCS 
-
----
-
-#### Switch Principle
-
-To transmit frames, the switch uses a switching table (or *MAC* table). Initially, after the switch is turned on, the table is empty. The switch fills it automatically when receiving frames from the hosts. When the switch receives the frame from the host, it first transfers it in accordance with its rules (described below), and then it remembers the sender's *MAC* address in the frame and maps it to the port on which it was received.
+To transmit frames, the switch uses a switching table (or *MAC table*). Initially, after the switch is turned on, the table is empty. The switch fills it automatically when receiving frames from the hosts. When the switch receives the frame from the host, it first transfers it in accordance with its rules (described below), and then it remembers the sender's MAC address in the frame and maps it to the port on which it was received.
 
 ##### Base mechanisms
 
@@ -342,24 +261,103 @@ More: http://xgu.ru/wiki/VLAN#.D0.9F.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF.D1.8B_.
 
 ---
 
+#### Token RIng
+
+...
+
+---
+
+#### FDDI
+
+...
+
+---
+
+#### Ethernet
+
+There are several Ethernet frame types:
+
+- Ethernet II (IEEE 802.3)
+- Ethernet LLC (IEEE 802.3/802.2)
+- Ethernet LLC/SNAP (IEEE 802.3/802.2 SNAP)
+
+##### Ethernet II
+
+![ethernet2](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet2.jpg)
+
+Ethernet II frame includes the next headers:
+
+- Preamble - is necessary for physics signal synchronization
+- DA - MAC destination address
+- SA - MAC source address
+- E-Type - type of L3 payload
+- Payload - encapsulated L3 packet. If size < 46 bytes, then filled to 46 bytes. It required for correct collisions identifying.
+- FCS - frame check system, codes of correction
+
+---
+
+##### Ethernet LLC
+
+![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc.jpg)
+
+Here LLC headers is added, described by IEEE 802.2.
+
+Ethernel LLC frame includes the next headers:
+
+- Preamble
+- SFD (*Frame Delimeter*) - Indicates about frame beginning
+- DA
+- SA
+- Length - length from this header to the end of frame
+- DSAP
+- SSAP
+- Control
+- Payload
+- FCS
+
+---
+
+##### Ethernet LLC/SNAP
+
+![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc-snap.jpg)
+
+The previous type of Ethernet frame contained the only 128 of possible L3 protocols. SNAP headers expand number of pointed protocols, for example, any proprietary protocols.
+
+![snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/snap.jpg)
+
+Ethernel LLC/SNAP frame includes the next headers:
+
+- Preamble
+- SFD
+- DA
+- SA
+- Length
+- DSAP
+- SSAP
+- Control
+- OUI (*Organizationally Unique Identifier*) - indicates organization identifier
+- PID (*Protocol ID*) - indicates L3 protocol
+- Payload
+- FCS 
+
+---
+
 #### VLAN
 
-TODO: write about *IEEE 802.1Q*
-
-**VLAN** - is any broadcast domain that is partitioned and isolated in a computer network at the data link layer. It allows to make devices invisible to each other even if they connected to the one switch or make their visible to each other if they connected to the different switches. *VLAN* is the main mechanism for creating a logical network topology independent of its physical topology in the modern networks.
+**VLAN** - is any broadcast domain that is partitioned and isolated in a computer network at the data link layer. It allows to make devices invisible to each other even if they connected to the one switch or make their visible to each other if they connected to the different switches. VLAN is the main mechanism for creating a logical network topology independent of its physical topology in the modern networks.
 
 Tasks:
 
 - reducing the broadcast traffic in the network
-- protection from the ARP Spoofing
+- protection from the *ARP Spoofing*
 
 ##### Traffic Tagging
 
-When sending traffic to the network, the computer does not even know in which *VLAN* it is located. This is what the switch thinks. The switch knows that the computer that is connected to a specific port is in the corresponding *VLAN*. The traffic arriving at the port of a particular *VLAN* is no different from the traffic of another *VLAN*. In other words, there is no information about traffic belonging to a specific *VLAN* in it.
+When sending traffic to the network, the computer does not even know in which VLAN it is located. This is what the switch thinks. The switch knows that the computer that is connected to a specific port is in the corresponding VLAN. The traffic arriving at the port of a particular VLAN is no different from the traffic of another VLAN. In other words, there is no information about traffic belonging to a specific VLAN in it.
 
-However, if traffic from different *VLANs* can come through the port, the switch must somehow distinguish it. To do this, each frame of the traffic must be marked in some special way. The tag should talk about which *VLAN* traffic belongs to.
+However, if traffic from different VLANs can come through the port, the switch must somehow distinguish it. To do this, each frame of the traffic must be marked in some special way. The tag should talk about which VLAN traffic belongs to.
 
-The most common way to mark this is described in the open *IEEE 802.1Q* standard. There are proprietary protocols that solve similar problems, for example, the *ISL* protocol from *Cisco Systems*, but their popularity is much lower (and declining).
+The most common way to mark this is described in the open IEEE 802.1Q standard. There are proprietary protocols that solve similar problems, for example, the *ISL* protocol from *Cisco Systems*, but their popularity is much lower (and declining).
 
 More: http://xgu.ru/wiki/VLAN
 
