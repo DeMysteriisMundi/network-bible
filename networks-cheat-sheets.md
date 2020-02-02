@@ -391,3 +391,21 @@ More: http://xgu.ru/wiki/VLAN
 
 ---
 
+#### QinQ
+
+**QinQ** - is a double VLAN tagging, described by *IEEE 802.1AD* standard. Use the same fields as *IEEE 802.1Q* standard. *QinQ* helps to decide several problems:
+
+- *QinQ* expands number of VLANs from 4096 to 4096*4096
+- *QinQ* using doesn't require to coordinate VLAN policy with *ISP* (*Internet Sevice Provider*). Your and ISP's VLAN policies will be separated. Your VLAN tag (*inner tag*) will be encapsulated to ISP's VLAN tag (*outer tag*) and will be used only in your LAN. ISP's VLAN tag will be used only in ISP's LAN. It looks like VLAN tunneling. ISP's VLAN tag creates the tunnel for yours VLAN traffic.
+
+*IEEE 802.1AD* tagging looks like:
+
+| Outer tag (ISP) | Inner tag (Your) |
+| :-------------: | :--------------: |
+|     4 bytes     |     24 bites     |
+
+*QinQ* using requires the increasing of *MTU* (*Maximum Transmission Unit*) of more than 4 bytes.
+
+More: https://en.wikipedia.org/wiki/IEEE_802.1ad
+
+---
