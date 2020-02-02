@@ -218,7 +218,7 @@ Data Link layer uses *frames* as a *data unit*. *IEEE 802.2* introduced separati
 
 ##### LLC
 
-*LLC* frame type determined by procedures described by *IEEE 802.2*. There are 3 procedures:
+LLC frame types determined by procedures described by *IEEE 802.2*. There are 3 procedures:
 
 - LLC1 - without connection and confirmation. Errors are not corrected. Used with datagrams. This procedure uses *unnumbered* frames.
 - LLC2 - with connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
@@ -228,11 +228,28 @@ LLC header contains 3 fields:
 
 |  DSAP  |  SSAP  | CONTROL |
 | :----: | :----: | :-----: |
-| 1 byte | 1 byte | 1 byte  |
+| 8 bits | 8 bits | 8 bits  |
 
 - DSAP (*Destination Service Access Point*) - indicates protocol that gets the frame (on the receiving side)
 - SSAP (*Source Service Access Point*) - indicates protocol that sends the frame (on the receiving side)
 - Control - indicates if *connection-less* or *connection-oriented* frame
+
+---
+
+##### LLC SNAP Extenstion
+
+LLC header allows to use only 128 of possible L3 protocols. *SNAP* (*Subnetwork Access Protocol*) header expands number of pointed protocols, for example, for any proprietary protocols.
+
+![snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/snap.jpg)
+
+SNAP header contains 2 fields:
+
+|  OUI   |  PID   |
+| :----: | :----: |
+| 8 bits | 8 bits |
+
+- OUI (*Organizationally Unique Identifier*) - indicates organization identifier
+- PID (*Protocol ID*) - indicates L3 protocol
 
 ---
 
@@ -300,18 +317,16 @@ Ethernet II frame includes the next headers:
 
 ![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc.jpg)
 
-Here LLC headers is added, described by IEEE 802.2.
+Here *LLC* header is added, described by IEEE 802.2.
 
 Ethernel LLC frame includes the next headers:
 
 - Preamble
-- SFD (*Frame Delimeter*) - Indicates about frame beginning
+- SFD (*Sequence Frame Delimiter*) - Indicates about frame beginning
 - DA
 - SA
 - Length - length from this header to the end of frame
-- DSAP
-- SSAP
-- Control
+- LLC
 - Payload
 - FCS
 
@@ -321,9 +336,7 @@ Ethernel LLC frame includes the next headers:
 
 ![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc-snap.jpg)
 
-The previous type of Ethernet frame contained the only 128 of possible L3 protocols. SNAP headers expand number of pointed protocols, for example, any proprietary protocols.
-
-![snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/snap.jpg)
+Here *SNAP* header is added, described by IEEE 802.2.
 
 Ethernel LLC/SNAP frame includes the next headers:
 
@@ -332,11 +345,8 @@ Ethernel LLC/SNAP frame includes the next headers:
 - DA
 - SA
 - Length
-- DSAP
-- SSAP
-- Control
-- OUI (*Organizationally Unique Identifier*) - indicates organization identifier
-- PID (*Protocol ID*) - indicates L3 protocol
+- LLC
+- SNAP
 - Payload
 - FCS 
 
@@ -357,9 +367,9 @@ The most common way to mark this is described in the open IEEE 802.1Q standard. 
 
 Mark added to frame by adding the special *Dot1q* header front of *EType* header (in Ethernet II standard). This header contains 4 fields:
 
-|   TPID   | Priority |  CFI   |   VID    |
-| :------: | :------: | :----: | :------: |
-| 16 bytes | 3 bytes  | 1 byte | 12 bytes |
+|  TPID   | Priority |  CFI  |   VID   |
+| :-----: | :------: | :---: | :-----: |
+| 16 bits |  3 bits  | 1 bit | 12 bits |
 
 - TPID (*Tag Protocol Identifier*) - identifier of tag protocol. For Dot1q used value 0x8100.
 - Priority - traffic priority
@@ -380,3 +390,4 @@ Trunk port links the network devices. This port doesn't removes the tag, it deci
 More: http://xgu.ru/wiki/VLAN
 
 ---
+
