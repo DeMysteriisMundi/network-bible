@@ -43,7 +43,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 #### Bus Topology
 
-![bus-topology](images/topologies/bus-topology.jpg)
+![bus-topology](/home/leschev/Projects/network-cheat-sheets/images/basics/topologies/bus-topology.jpg)
 
 **+**:
 
@@ -57,7 +57,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 #### Ring Topology
 
-![ring-topology](images/topologies/ring-topology.jpg)
+![ring-topology](/home/leschev/Projects/network-cheat-sheets/images/basics/topologies/ring-topology.jpg)
 
 **+**:
 
@@ -73,9 +73,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 #### Star Topology
 
-![star-topology](images/topologies/star-topology.jpg)
-
-
+![star-topology](/home/leschev/Projects/network-cheat-sheets/images/basics/topologies/star-topology.jpg)
 
 **+**:
 
@@ -91,7 +89,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 #### Full-Mesh Topology
 
-![full-mesh-topology](images/topologies/full-mesh-topology.jpg)
+![full-mesh-topology](/home/leschev/Projects/network-cheat-sheets/images/basics/topologies/full-mesh-topology.jpg)
 
 **+**:
 
@@ -107,7 +105,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 #### Partial-Mesh Topology
 
-![partial-mesh-topology](images/topologies/partial-mesh-topology.jpg)
+![partial-mesh-topology](/home/leschev/Projects/network-cheat-sheets/images/basics/topologies/partial-mesh-topology.jpg)
 
 **+**:
 
@@ -123,7 +121,7 @@ More: http://xgu.ru/wiki/802.1Q
 
 #### Hybrid Topology
 
-![hybrid-topology](images/topologies/hybrid-topology.jpg)
+![hybrid-topology](/home/leschev/Projects/network-cheat-sheets/images/basics/topologies/hybrid-topology.jpg)
 
 **+/-**:
 
@@ -151,7 +149,7 @@ More: http://xgu.ru/wiki/802.1Q
 **OSI** - conceptual model of network protocols and standards used as a general model.
 **TCP/IP** - conceptual model of network protocols and standards used as a practical model.
 
-![tcp-ip](images/models/tcp-ip-and-osi.jpg)
+![tcp-ip-and-osi](/home/leschev/Projects/network-cheat-sheets/images/basics/models/tcp-ip-and-osi.jpg)
 
 #### Physical
 
@@ -197,17 +195,17 @@ More: http://xgu.ru/wiki/%D0%A1%D0%B5%D1%82%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BC%D0%BE
 
 ---
 
-## Protocols and Mechanisms
+## Protocols, Standards and Mechanisms
 
 
 
-### Physical Level
+### Physical Layer
 
 ...
 
 ---
 
-### Data Link Level
+### Data Link Layer
 
 #### About Data Link Layer
 
@@ -238,9 +236,9 @@ LLC header contains 3 fields:
 
 ##### LLC SNAP Extenstion
 
-LLC header allows to use only 128 of possible L3 protocols. *SNAP* (*Subnetwork Access Protocol*) header expands number of pointed protocols, for example, for any proprietary protocols.
+LLC header allows to use only 128 of possible L3 protocols. *SNAP* (*Subnetwork Access Protocol*) header expands number of pointed protocols, for exam	ple, for any proprietary protocols.
 
-![snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/snap.jpg)
+![snap](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/snap.jpg)
 
 SNAP header contains 2 fields:
 
@@ -300,7 +298,7 @@ There are several Ethernet frame types:
 
 ##### Ethernet II
 
-![ethernet2](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet2.jpg)
+![ethernet2](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet2.jpg)
 
 Ethernet II frame includes the next headers:
 
@@ -315,7 +313,7 @@ Ethernet II frame includes the next headers:
 
 ##### Ethernet LLC
 
-![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc.jpg)
+![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet-llc.jpg)
 
 Here *LLC* header is added, described by IEEE 802.2.
 
@@ -334,7 +332,7 @@ Ethernel LLC frame includes the next headers:
 
 ##### Ethernet LLC/SNAP
 
-![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/data-link/ethernet/ethernet-llc-snap.jpg)
+![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet-llc-snap.jpg)
 
 Here *SNAP* header is added, described by IEEE 802.2.
 
@@ -427,7 +425,7 @@ There are two versions of *IP*:
 
 ##### IPv4
 
-![ipv4](/home/leschev/Projects/network-cheat-sheets/images/network-layer/ip/ipv4.png)
+![ipv4](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv4.png)
 
 IPv4 packet includes the next headers:
 
