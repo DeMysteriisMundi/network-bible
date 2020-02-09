@@ -409,3 +409,49 @@ More: http://xgu.ru/wiki/VLAN
 More: https://en.wikipedia.org/wiki/IEEE_802.1ad
 
 ---
+
+### Network Layer
+
+#### About Network Layer
+
+...
+
+#### IP
+
+**IP** (*Internet Protocol*) - is the routable protocol whose main purpose are internetworking and essentially establishes the Internet. *IP* combines network segments into a single network, ensuring the delivery of data packets between any network nodes through an arbitrary number of intermediate nodes (*routers*).
+
+There are two versions of *IP*:
+
+- IPv4
+- IPv6
+
+##### IPv4
+
+![ipv4](/home/leschev/Projects/network-cheat-sheets/images/network-layer/ip/ipv4.png)
+
+IPv4 packet includes the next headers:
+
+- Version
+- IHL (*Internet Header Length*)
+- DSCP (*Differentiated Services Code Point*)
+- ECN (*Explicit Congestion Notification*)
+- Length
+- Identification
+- Flags
+- Fragment Offset
+- TTL (*Time To Live*)
+- Protocol
+- CRC
+- Source IP Address
+- Destination IP Address
+- Parameters
+- Payload
+
+---
+
+##### IPv6
+
+...
+
+---
+
