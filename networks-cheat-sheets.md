@@ -2,6 +2,10 @@
 
 ---
 
+[TOC]
+
+---
+
 ## General
 
 
@@ -214,7 +218,7 @@ Data Link layer uses *frames* as a *data unit*. *IEEE 802.2* introduced separati
 - MAC (*Media Access Control*) - controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
 - LLC (*Logical Link Control*) - used for relations with L3. LLC frame may be of 3 types: *informational*, *managerial*, *unnumbered*.
 
-##### LLC
+**LLC**
 
 LLC frame types determined by procedures described by *IEEE 802.2*. There are 3 procedures:
 
@@ -234,7 +238,7 @@ LLC header contains 3 fields:
 
 ---
 
-##### LLC SNAP Extenstion
+**LLC SNAP Extension**
 
 LLC header allows to use only 128 of possible L3 protocols. *SNAP* (*Subnetwork Access Protocol*) header expands number of pointed protocols, for exam	ple, for any proprietary protocols.
 
@@ -255,7 +259,7 @@ SNAP header contains 2 fields:
 
 To transmit frames, the switch uses a switching table (or *MAC table*). Initially, after the switch is turned on, the table is empty. The switch fills it automatically when receiving frames from the hosts. When the switch receives the frame from the host, it first transfers it in accordance with its rules (described below), and then it remembers the sender's MAC address in the frame and maps it to the port on which it was received.
 
-##### Base mechanisms
+**Base Mechanisms**
 
 Switch uses four base mechanisms to frame transmitting:
 
@@ -296,22 +300,20 @@ There are several Ethernet frame types:
 - Ethernet LLC (IEEE 802.3/802.2)
 - Ethernet LLC/SNAP (IEEE 802.3/802.2 SNAP)
 
-##### Ethernet II
+**Ethernet II**
 
 ![ethernet2](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet2.jpg)
 
 Ethernet II frame includes the next headers:
 
-- Preamble - is necessary for physics signal synchronization
-- DA - MAC destination address
-- SA - MAC source address
+- Preamble - it's necessary for physics signal synchronization
+- DA (*Destination Address*) - MAC destination address
+- SA (*Source Address*) - MAC source address
 - E-Type - type of L3 payload
 - Payload - encapsulated L3 packet. If size < 46 bytes, then filled to 46 bytes. It required for correct collisions identifying.
-- FCS - frame check system, codes of correction
+- FCS (*Frame Check System*) - frame check system, codes of correction
 
----
-
-##### Ethernet LLC
+**Ethernet LLC**
 
 ![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet-llc.jpg)
 
@@ -330,7 +332,7 @@ Ethernel LLC frame includes the next headers:
 
 ---
 
-##### Ethernet LLC/SNAP
+**Ethernet LLC/SNAP**
 
 ![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet-llc-snap.jpg)
 
@@ -359,7 +361,7 @@ Tasks:
 - reducing the broadcast traffic in the network
 - protection from the *ARP Spoofing*
 
-##### Traffic Tagging
+**Traffic Tagging**
 
 The most common way to mark this is described in the open IEEE 802.1Q standard. There are also proprietary protocols that solve similar problems, for example, the *ISL* protocol from *Cisco Systems*, but their popularity is much lower (and declining).
 
@@ -374,7 +376,7 @@ Mark added to frame by adding the special *Dot1q* header front of *EType* header
 - CFI (*Canonical Format Indicator*) - indicates to MAC address format. 0 - canonical, 1 - non-canonical.
 - VID (*VLAN Identifier*) - VLAN number
 
-##### Access and Trunk ports
+**Access and Trunk ports**
 
 There are 2 ports type:
 
@@ -414,7 +416,7 @@ More: https://en.wikipedia.org/wiki/IEEE_802.1ad
 
 ...
 
-#### IP
+#### Internet Protocol
 
 **IP** (*Internet Protocol*) - is the routable protocol whose main purpose are internetworking and essentially establishes the Internet. *IP* combines network segments into a single network, ensuring the delivery of data packets between any network nodes through an arbitrary number of intermediate nodes (*routers*).
 
@@ -423,23 +425,23 @@ There are two versions of *IP*:
 - IPv4
 - IPv6
 
-##### IPv4
+**IPv4**
 
 ![ipv4](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv4.png)
 
 IPv4 packet includes the next headers:
 
-- Version
-- IHL (*Internet Header Length*)
+- Version - IP protocol version. Has value 4 or 6.
+- IHL (*Internet Header Length*) - Header length in *dword* (*32-bit words*). It indicates to beginning of *payload*.
 - DSCP (*Differentiated Services Code Point*)
 - ECN (*Explicit Congestion Notification*)
-- Length
+- Length - packet length, including headers and payload
 - Identification
 - Flags
 - Fragment Offset
-- TTL (*Time To Live*)
-- Protocol
-- CRC
+- TTL (*Time To Live*) - In fact this value indicates to amount of intermediate nodes that packet can pass. Every node reduces the value by 1. When *TTL* will be equal to 0, packet will be discarded.
+- Protocol - *L4* protocol
+- CRC - correction codes
 - Source IP Address
 - Destination IP Address
 - Parameters
@@ -447,7 +449,37 @@ IPv4 packet includes the next headers:
 
 ---
 
-##### IPv6
+**DSCP**
+
+...
+
+---
+
+**ECN**
+
+...
+
+---
+
+**Fragmentation**
+
+If packet has a huge size, it's divided by several small-size fragments. This process named *fragmentation*. Router compiles packet from the got fragments. Fragmentation process uses three fields:
+
+- Identification - fragments of one packet have the same value. Router uses it to identify belonging to one packet.
+- Flags - 3 bits: DF (*Don't Fragment*), MF (*More Fragments*) and reserved bit. *DF* bit forbids to fragment the packet. *MF* bit indicates that current fragment is not last of this packet. Router uses *MF* to identify beginning and ending of packet fragments set.
+- Fragment Offset - Router uses it to identify the order of fragments in packet.
+
+---
+
+**Parameters**
+
+*Parameters* is optional header, that common used for a debugging information. This header consists of several fields of one of eight predefined types. In these fields, you can specify the exact route, register routers traveled by the packet, place security data or time stamps.
+
+Since the number of subfields in the parameter field can be arbitrary, several zero bytes must be added at the end of the header to align the packet header with a 32-bit boundary.
+
+---
+
+**IPv6**
 
 ...
 
