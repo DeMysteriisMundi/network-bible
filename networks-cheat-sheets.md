@@ -466,8 +466,12 @@ IPv4 packet includes the next headers:
 If packet has a huge size, it's divided by several small-size fragments. This process named *fragmentation*. Router compiles packet from the got fragments. Fragmentation process uses three fields:
 
 - Identification - fragments of one packet have the same value. Router uses it to identify belonging to one packet.
+
 - Flags - 3 bits: DF (*Don't Fragment*), MF (*More Fragments*) and reserved bit. *DF* bit forbids to fragment the packet. *MF* bit indicates that current fragment is not last of this packet. Router uses *MF* to identify beginning and ending of packet fragments set.
+
 - Fragment Offset - Router uses it to identify the order of fragments in packet.
+
+  Fragmentation is produced if packet size more then *MTU*. *MTU* (*Maximum Transmission Unit*) - is unit size, transmitted by Ethernet frame (*payload*). *IEEE 802.3* set size of Ethernet frame in 1518 bytes. This chose based on different factors - network tasks, loading, transmitting data, distance etc. 18 bytes used for headers, except the *preambula*. Don't forget about *LLC, SNAP, dot1q, qinq* that can add extra headers. The remaining 1500 bytes used for payload. There are frames with size from 1500 to 16000 bytes - *jumbo frames*. They used in specific tasks.
 
 ---
 
@@ -475,7 +479,7 @@ If packet has a huge size, it's divided by several small-size fragments. This pr
 
 *Parameters* is optional header, that common used for a debugging information. This header consists of several fields of one of eight predefined types. In these fields, you can specify the exact route, register routers traveled by the packet, place security data or time stamps.
 
-Since the number of subfields in the parameter field can be arbitrary, several zero bytes must be added at the end of the header to align the packet header with a 32-bit boundary.
+Since the number of fields in the *parameters* header can be arbitrary, several zero bytes must be added at the end of the header to align the packet header with a 32-bit boundary.
 
 ---
 
