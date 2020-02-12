@@ -483,6 +483,41 @@ Since the number of fields in the *parameters* header can be arbitrary, several 
 
 ---
 
+**IP Addresses**
+
+IPv4 address consists of 32 bits. It's decided to represent the address as 4 octets in decimal notation as a numbers from 0 to 255 divided by dot. IPv4 address consists of two parts: network number and host number. For differences network and host numbers subnet mask used.
+Example: 181.3.25.103
+
+Subnet mask is bits mask, that consists of 32 bits, where in the beginning there are 1, followed by 0. Subnet mask represents as well as IPv4 address.
+Example: 255.255.0.0
+
+Minimal network consists of 3 address - network address (the first address from range), broadcast address (the last from range), host address. For connectivity with another L3 networks it's availability required of the fourth address - default gateway.
+
+There are two types of addressing:
+
+- Classful Addressing
+- CIDR (*Classless Inter-Domain Routing*)
+
+**Classful Addressing**
+
+![classful-addressing](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/classful-addressing.png)
+
+By classful addressing all the address space is divided to 5 classes:
+
+- A - used for /8 networks
+- B - used for /16 networks
+- C - used for /24 networks
+- D - used for multicast. Uses /24 subnet mask.
+- E - reserved. Also uses /24 subnet mask.
+
+Router distinguishes classes by first bits in the address. A - 0, B - 10, C - 110, D - 1110, E -1111. Router reads first bits until meet 0 or doesn't read four bits. By fact, this classful bits are immutable, so network address uses 32 - X - Y bits, where X is classful bits and Y is host bits.
+
+**CIDR**
+
+...
+
+---
+
 **IPv6**
 
 ...
