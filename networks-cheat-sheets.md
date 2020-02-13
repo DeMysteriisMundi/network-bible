@@ -485,17 +485,20 @@ Since the number of fields in the *parameters* header can be arbitrary, several 
 
 **IP Addresses**
 
-IPv4 address consists of 32 bits. It's decided to represent the address as 4 octets in decimal notation as a numbers from 0 to 255 divided by dot. IPv4 address consists of two parts: network number and host number. For differences network and host numbers subnet mask used.
+IPv4 address consists of 32 bits. It's decided to represent the address by 4 octets in decimal notation as a numbers from 0 to 255 divided by dot. IPv4 address consists of two parts: network number and host number. For differences network and host numbers subnet mask used.
 Example: 181.3.25.103
 
-Subnet mask is bits mask, that consists of 32 bits, where in the beginning there are 1, followed by 0. Subnet mask represents as well as IPv4 address.
-Example: 255.255.0.0
+Subnet mask is bits mask, that consists of 32 bits, where in the beginning there are 1, followed by 0. Subnet mask represents as well as IPv4 address. Also it represents as a suffix with amount of 1.
+Example: 255.255.0.0 or x.x.x.x/16
 
-Minimal network consists of 3 address - network address (the first address from range), broadcast address (the last from range), host address. For connectivity with another L3 networks it's availability required of the fourth address - default gateway.
+There are two types of addresses:
 
-There are two types of addressing:
+- public (*or white*) - accessible from Internet
+- private (*or gray*) - doesn't accessible from Internet
 
-- Classful Addressing
+Private addresses depend on addressing type. There are two types of addressing:
+
+- Classful Addressing (deprecated)
 - CIDR (*Classless Inter-Domain Routing*)
 
 **Classful Addressing**
@@ -504,17 +507,32 @@ There are two types of addressing:
 
 By classful addressing all the address space is divided to 5 classes:
 
-- A - used for /8 networks
-- B - used for /16 networks
-- C - used for /24 networks
-- D - used for multicast. Uses /24 subnet mask.
-- E - reserved. Also uses /24 subnet mask.
+- A - used for companies. 128 networks and 2 147 483 648  hosts
+- B - used for companies. 16 384 networks and 1 073 741 824  hosts
+- C - used for companies. 2 097 152 networks and 536 870 912 
+- D - reserved network for multicast
+- E - reserved network for experiments
 
-Router distinguishes classes by first bits in the address. A - 0, B - 10, C - 110, D - 1110, E -1111. Router reads first bits until meet 0 or doesn't read four bits. By fact, this classful bits are immutable, so network address uses 32 - X - Y bits, where X is classful bits and Y is host bits.
+Router distinguishes classes by first bits in the address. A - 0, B - 10, C - 110, D - 1110, E -1111. Router reads first bits until meet 0 or read four bits. By fact, this classful bits are immutable, so network address uses 32 - X - Y bits, where X is amount of classful bits and Y is amount of host bits.
+
+Classful addressing uses the next private addresses ranges:
+
+- 100.64.0.0 - 100.127.255.255 - /10 subnet mask. Recommended by RFC 6598 for *CGN* (*Carrier-Grade NAT*).
+- 172.16.0.0 - 172.31.255.255 - /12 subnet mask
+- 192.168.0.0 - 192.168.255.255 - /16 subnet mask
+- 127.0.0.0 - 127.255.255.255 - /8 subnet mask. Used for loopback interfaces.
+
+More: https://habr.com/ru/post/314484/
 
 **CIDR**
 
-...
+***CIDR*** - IP addressing method that allows you to flexibly manage the IP address space without using the rigid framework of class addressing. Using this method allows you to economically use a limited resource of IP addresses, since it is possible to apply different subnet masks to different subnets. IP address is an array of bits. The subnet mask determines which bits in the IP address are the network address. The address block is set by specifying the starting address and subnet mask. Classless addressing is based on a *VLSM* (*Variable Length Subnet Mask*), while in class addressing, the length of the subnet mask had only 3 fixed values.
+
+CIDR addressing uses the next private addresses ranges:
+
+- 10.0.0.0 - 10.255.255.255 - /8 subnet mask
+
+More: https://habr.com/ru/post/314484/
 
 ---
 
