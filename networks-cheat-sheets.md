@@ -538,7 +538,55 @@ More: https://habr.com/ru/post/314484/
 
 **IPv6**
 
+IPv6 is very different from the IPv4. The most important difference is IP address. IPv6 address have size of 128 bits. Also IP address have a more strict structure. The second important difference is simplified structure of IP packet.
+
+![ipv6](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv6.png)
+
+IPv6 packet contains the next headers;
+
+- Version
+- Traffic Class
+- Flow Label
+- Payload Length
+- Next Header
+- Hop Limit
+- Source IP Address
+- Destination IP Address
+
+---
+
+**Traffic Class**
+
 ...
 
 ---
 
+**Flow Label**
+
+...
+
+---
+
+**IPv6 address**
+
+IPv6 address contains from 128 bits. This expanded the address space. But the huge amount of addresses is not only one change.
+
+Firstly, look to the IPv6 address:
+
+2001:0DB8:0000:3234:5678:9ABC:0000:0000/32
+
+The hexadecimal number system is used for recording. The parts of hexadecimal number are named *hextets*. Leading zeros are removed to reduce the address. Also groups of duplicate zeros are removed. A single group of zeros is replaced by 0. So the previous address may be replaced as follows:
+
+2001:DB8:0:3234:5678:9ABC::/32
+
+Pay attention to prefix in the end of address, that follows by the slash symbol. This prefix used instead of subnet mask and divides network address from the host address.
+
+Prefix divided address to parts:
+
+- Global Routing Network - this is a network address part, that used for global routing
+- Subnet Identifier - this is a just subnet
+- Interface Identifier - this is a node
+
+IPv6 address has a more strict hierarchy, than IPv4 address.
+
+---
