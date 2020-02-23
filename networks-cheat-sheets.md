@@ -538,7 +538,7 @@ More: https://habr.com/ru/post/314484/
 
 **IPv6**
 
-IPv6 is very different from the IPv4. The most important difference is IP address. IPv6 address have size of 128 bits. Also IP address have a more strict structure. The second important difference is simplified structure of IP packet.
+IPv6 is very different from the IPv4. In addition to increasing the size of the IP address, IPv6 greatly optimizes the most of mechanisms that will be reviewed below. At firstly, look at IPv6 packet structure:
 
 ![ipv6](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv6.png)
 
@@ -569,24 +569,24 @@ IPv6 packet contains the next headers;
 
 **IPv6 address**
 
-IPv6 address contains from 128 bits. This expanded the address space. But the huge amount of addresses is not only one change.
-
-Firstly, look to the IPv6 address:
+IPv6 address contains from 128 bits, that are recorded in hexadecimal number system:
 
 2001:0DB8:0000:3234:5678:9ABC:0000:0000/32
 
-The hexadecimal number system is used for recording. The parts of hexadecimal number are named *hextets*. Leading zeros are removed to reduce the address. Also groups of duplicate zeros are removed. A single group of zeros is replaced by 0. So the previous address may be replaced as follows:
+The parts of hexadecimal number divided by colon are named *hextets*. The long recording format IPv6 written above may lead to a short format. For this it is necessary to remove the leading zeros in the each address group. Groups containing only the zeros, need to be replaced by the one zero. The longest sequence consisting from the zeros replaced by two colons. The short recording format looks like:
 
 2001:DB8:0:3234:5678:9ABC::/32
 
-Pay attention to prefix in the end of address, that follows by the slash symbol. This prefix used instead of subnet mask and divides network address from the host address.
+Pay attention to number in the end of address, that follows by the slash symbol. It is used as a subnet mask and indicates size of network part of address. IPv6 address divided to two parts:
 
-Prefix divided address to parts:
+- Prefix - the network address
+- Interface Identifier - the node address
 
-- Global Routing Network - this is a network address part, that used for global routing
-- Subnet Identifier - this is a just subnet
-- Interface Identifier - this is a node
+But prefix also divided by two parts:
 
-IPv6 address has a more strict hierarchy, than IPv4 address.
+- Global Routing Prefix - the global network address
+- Subnet Identifier - the subnet address
+
+Global Routing Prefix issues by provider. Subnet Identifier assignes by client. IPv6 uses CIDR addressing and it is allows to use  VLSM-like mechanism - we can change subnet size by borrowing the low bits. But it recommends to changing 4 bits to avoid the situation when the one part of hexadecimal number indicates to subnet and the other part indicates to interface.
 
 ---
