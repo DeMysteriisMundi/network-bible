@@ -36,6 +36,12 @@ More: http://xgu.ru/wiki/802.1Q
 
 ---
 
+### RFC
+
+...
+
+---
+
 ## Basics
 
 
@@ -412,66 +418,53 @@ More: https://en.wikipedia.org/wiki/IEEE_802.1ad
 
 ### Network Layer
 
-#### About Network Layer
+TODO: About Network Protocol
 
-...
+---
 
-#### Internet Protocol
-
-**IP** (*Internet Protocol*) - is the routable protocol whose main purpose are internetworking and essentially establishes the Internet. *IP* combines network segments into a single network, ensuring the delivery of data packets between any network nodes through an arbitrary number of intermediate nodes (*routers*).
-
-There are two versions of *IP*:
-
-- IPv4
-- IPv6
-
-**IPv4**
+#### IPv4
 
 ![ipv4](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv4.png)
 
-IPv4 packet includes the next headers:
+*IPv4 Packet* includes the next headers:
 
-- Version - IP protocol version. Has value 4 or 6.
-- IHL (*Internet Header Length*) - Header length in *dword* (*32-bit words*). It indicates to beginning of *payload*.
-- DSCP (*Differentiated Services Code Point*)
-- ECN (*Explicit Congestion Notification*)
-- Length - packet length, including headers and payload
-- Identification
-- Flags
-- Fragment Offset
-- TTL (*Time To Live*) - In fact this value indicates to amount of intermediate nodes that packet can pass. Every node reduces the value by 1. When *TTL* will be equal to 0, packet will be discarded.
-- Protocol - *L4* protocol
-- CRC - correction codes
-- Source IP Address
-- Destination IP Address
-- Parameters
-- Payload
-
----
-
-**DSCP**
-
-...
+- *Version* - IP protocol version. Has value 4 or 6.
+- *IHL* (*Internet Header Length*) - Header length in *dword* (*32-bit words*). It indicates to beginning to *Payload* field.
+- *DSCP* (*Differentiated Services Code Point*)
+- *ECN* (*Explicit Congestion Notification*)
+- *Length* - Packet length, including *Header* and *Payload*
+- *Identification* - Fragment identification
+- *Flags* - Fragmentation options
+- *Fragment Offset* - Fragment offset from the beginning
+- *TTL* (*Time To Live*) - In fact this value indicates to amount of intermediate nodes that packet can pass. Every node reduces the value by 1. When *TTL* will be equal to 0, packet will be discarded.
+- *Protocol* - *L4* protocol
+- *CRC* (*Cyclic Redundancy Code*) - Correction codes
+- *Source IP Address*
+- *Destination IP Address*
+- *Parameters* - Debugging options
+- *Payload* - *L4 Payload*
 
 ---
 
-**ECN**
+TODO: DSCP
 
-...
+---
+
+TODO: ECN
 
 ---
 
 **Fragmentation**
 
-If packet has a huge size, it's divided by several small-size fragments. This process named *fragmentation*. Router compiles packet from the got fragments. Fragmentation process uses three fields:
+If packet has a huge size, it's divided by several small-size fragments. This process named *Fragmentation*. Router compiles packet from the got fragments. *Fragmentation* process uses three fields:
 
-- Identification - fragments of one packet have the same value. Router uses it to identify belonging to one packet.
+- *Identification* - fragments of one packet have the same value. Router uses it to identify belonging to one packet.
 
-- Flags - 3 bits: DF (*Don't Fragment*), MF (*More Fragments*) and reserved bit. *DF* bit forbids to fragment the packet. *MF* bit indicates that current fragment is not last of this packet. Router uses *MF* to identify beginning and ending of packet fragments set.
+- *Flags* - 3 bits: DF (*Don't Fragment*), MF (*More Fragments*) and reserved bit. *DF* bit forbids to fragment the packet. *MF* bit indicates that current fragment is not last of this packet. Router uses *MF* to identify beginning and ending of packet fragments set.
 
-- Fragment Offset - Router uses it to identify the order of fragments in packet.
+- *Fragment Offset* - Router uses it to identify the order of fragments in packet.
 
-  Fragmentation is produced if packet size more then *MTU*. *MTU* (*Maximum Transmission Unit*) - is unit size, transmitted by Ethernet frame (*payload*). *IEEE 802.3* set size of Ethernet frame in 1518 bytes. This chose based on different factors - network tasks, loading, transmitting data, distance etc. 18 bytes used for headers, except the *preambula*. Don't forget about *LLC, SNAP, dot1q, qinq* that can add extra headers. The remaining 1500 bytes used for payload. There are frames with size from 1500 to 16000 bytes - *jumbo frames*. They used in specific tasks.
+  *Fragmentation* is produced if packet size more then *MTU*. *MTU* (*Maximum Transmission Unit*) - is unit size, transmitted by *Ethernet Frame* (*Payload*). *IEEE 802.3* set size of *Ethernet Frame* in 1518 bytes. This chose based on different factors - network tasks, loading, transmitting data, distance etc. 18 bytes used for headers, except the *Preambula*. Don't forget about *LLC, SNAP, dot1q, qinq* that can add extra headers. The remaining 1500 bytes used for *Payload*. There are frames with size from 1500 to 16000 bytes - *Jumbo Frames*. They used in specific tasks.
 
 ---
 
@@ -485,44 +478,64 @@ Since the number of fields in the *parameters* header can be arbitrary, several 
 
 **IP Addresses**
 
-IPv4 address consists of 32 bits. It's decided to represent the address by 4 octets in decimal notation as a numbers from 0 to 255 divided by dot. IPv4 address consists of two parts: network number and host number. For differences network and host numbers subnet mask used.
-Example: 181.3.25.103
+*IPv4 Address* consists of 32 bits. It's decided to represent the address by 4 octets in decimal notation as a numbers from 0 to 255 divided by dot. *IPv4 Address* consists of two parts: network number and host number. For differences network and host numbers *Subnet Mask* used.
 
-Subnet mask is bits mask, that consists of 32 bits, where in the beginning there are 1, followed by 0. Subnet mask represents as well as IPv4 address. Also it represents as a suffix with amount of 1.
-Example: 255.255.0.0 or x.x.x.x/16
+```
+181.3.25.103
+```
+
+*Subnet Mask* is bits mask, that consists of 32 bits, where in the beginning there are 1, followed by 0. *Subnet Mask* represented as well as *IPv4 Address*. Also it represented as a suffix with amount of 1.
+
+```
+255.255.0.0
+```
+
+or
+
+```
+x.x.x.x/16
+```
+
+There are several types of *IPv4 Casts*:
+
+- *Unicast* - from node to the node
+- *Multicast* - from node to the node group
+- *Broadcast* - from node to every nodes
 
 There are two types of addresses:
 
-- public (*or white*) - accessible from Internet
-- private (*or gray*) - doesn't accessible from Internet
+- *Public (or white)* - accessible from Internet
+- *Private (or gray)* - doesn't accessible from the *Internet*
 
-Private addresses depend on addressing type. There are two types of addressing:
+*Private Addresses* depend on addressing type. There are two types of addressing:
 
-- Classful Addressing (deprecated)
-- CIDR (*Classless Inter-Domain Routing*)
+- *Classful Addressing (deprecated)*
+- *CIDR (Classless Inter-Domain Routing)*
+
+---
 
 **Classful Addressing**
 
 ![classful-addressing](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/classful-addressing.png)
 
-By classful addressing all the address space is divided to 5 classes:
+By *Classful Addressing* all the address space is divided to 5 classes:
 
-- A - used for companies. 128 networks and 2 147 483 648  hosts
-- B - used for companies. 16 384 networks and 1 073 741 824  hosts
-- C - used for companies. 2 097 152 networks and 536 870 912 
-- D - reserved network for multicast
-- E - reserved network for experiments
+- *A* - used for companies. 128 networks and 2 147 483 648  hosts
+- *B* - used for companies. 16 384 networks and 1 073 741 824  hosts
+- *C* - used for companies. 2 097 152 networks and 536 870 912 
+- *D* - reserved network for multicast
+- *E* - reserved network for experiments
 
 Router distinguishes classes by first bits in the address. A - 0, B - 10, C - 110, D - 1110, E -1111. Router reads first bits until meet 0 or read four bits. By fact, this classful bits are immutable, so network address uses 32 - X - Y bits, where X is amount of classful bits and Y is amount of host bits.
 
-Classful addressing uses the next private addresses ranges:
+*Classful Addressing* uses the next private addresses ranges:
 
-- 100.64.0.0 - 100.127.255.255 - /10 subnet mask. Recommended by RFC 6598 for *CGN* (*Carrier-Grade NAT*).
-- 172.16.0.0 - 172.31.255.255 - /12 subnet mask
-- 192.168.0.0 - 192.168.255.255 - /16 subnet mask
-- 127.0.0.0 - 127.255.255.255 - /8 subnet mask. Used for loopback interfaces.
+- *100.64.0.0 - 100.127.255.255* - /10 subnet mask. Recommended by RFC 6598 for *CGN* (*Carrier-Grade NAT*).
+- *172.16.0.0 - 172.31.255.255* - /12 subnet mask
+- *192.168.0.0 - 192.168.255.255* - /16 subnet mask
+- *127.0.0.0 - 127.255.255.255* - /8 subnet mask. Used for *Loopback Interfaces*.
 
-More: https://habr.com/ru/post/314484/
+---
 
 **CIDR**
 
@@ -530,63 +543,110 @@ More: https://habr.com/ru/post/314484/
 
 CIDR addressing uses the next private addresses ranges:
 
-- 10.0.0.0 - 10.255.255.255 - /8 subnet mask
-
-More: https://habr.com/ru/post/314484/
+- *10.0.0.0 - 10.255.255.255* - /8 subnet mask
 
 ---
 
-**IPv6**
+#### IPv6
 
-IPv6 is very different from the IPv4. In addition to increasing the size of the IP address, IPv6 greatly optimizes the most of mechanisms that will be reviewed below. At firstly, look at IPv6 packet structure:
+*IPv6* is very different from the *IPv4*. In addition to increasing the size of the *IP Address* field, *IPv6* greatly optimizes the most of mechanisms. Look at *IPv6 Packet* structure:
 
 ![ipv6](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv6.png)
 
-IPv6 packet contains the next headers;
+*IPv6 Packet* contains the next headers:
 
-- Version
-- Traffic Class
-- Flow Label
-- Payload Length
-- Next Header
-- Hop Limit
-- Source IP Address
-- Destination IP Address
-
----
-
-**Traffic Class**
-
-...
+- *Version*
+- *Traffic Class*
+- *Flow Label*
+- *Payload Length*
+- *Next Header*
+- *Hop Limit*
+- *Source IP Address*
+- *Destination IP Address*
 
 ---
 
-**Flow Label**
-
-...
+TODO: TRAFFIC CLASS
 
 ---
 
-**IPv6 address**
+TODO: FLOW LABEL
 
-IPv6 address contains from 128 bits, that are recorded in hexadecimal number system:
+---
 
+**IPv6 Address**
+
+*IPv6 Address* contains from 128 bits, that are recorded in hexadecimal number system:
+
+```
 2001:0DB8:0000:3234:5678:9ABC:0000:0000/32
+```
 
-The parts of hexadecimal number divided by colon are named *hextets*. The long recording format IPv6 written above may lead to a short format. For this it is necessary to remove the leading zeros in the each address group. Groups containing only the zeros, need to be replaced by the one zero. The longest sequence consisting from the zeros replaced by two colons. The short recording format looks like:
+The parts of hexadecimal number divided by colon are named *hextets*. The long recording format *IPv6 Address* written above may lead to a short format. For this it is necessary to remove the leading zeros in the each address group. Groups containing only the zeros, need to be replaced by the one zero. The longest sequence consisting from the zeros replaced by two colons. The short recording format looks like:
 
+```
 2001:DB8:0:3234:5678:9ABC::/32
+```
 
-Pay attention to number in the end of address, that follows by the slash symbol. It is used as a subnet mask and indicates size of network part of address. IPv6 address divided to two parts:
+Pay attention to the number in the end of address, that follows by the slash symbol. It is the *Prefix* size. It is used like a subnet mask and divides the *IPv6 Address* by two parts:
 
-- Prefix - the network address
-- Interface Identifier - the node address
+- *Prefix* - the network address
+- *Interface Identifier* - the node address
 
-But prefix also divided by two parts:
+But *Prefix* also divided by two parts:
 
-- Global Routing Prefix - the global network address
-- Subnet Identifier - the subnet address
+- *Global Routing Prefix* - the global network address
+- *Subnet Identifier* - the subnet address
 
-Global Routing Prefix issues by provider. Subnet Identifier assignes by client. IPv6 uses CIDR addressing and it is allows to use  VLSM-like mechanism - we can change subnet size by borrowing the low bits. But it recommends to changing 4 bits to avoid the situation when the one part of hexadecimal number indicates to subnet and the other part indicates to interface.
+*Global Routing Prefix* issues by provider. *Subnet Identifier* assigned by client. *IPv6* uses *CIDR* addressing and it is allows to use  *VLSM-like* mechanism - we can change subnet size by borrowing the low bits. But it recommends to changing 4 bits to avoid the situation when the one part of hexadecimal number indicates to subnet and the other part indicates to interface.
+
+There are several *IPv6 Cast* types:
+
+- *Unicast* - from node to the node
+- *Anycast* - from node to the node from the multicast group
+- *Multicast* - from node to the node group
 
 ---
+
+**Unicast**
+
+IPv6 determines six types of *Unicast Addresses*:
+
+- *Global Unicast Addresses*
+- *Link-Local Addresses*
+- *Loopback Address*
+- *Unspecified Address*
+- *Unique Local Addresses*
+- *IPv4 Embedded Addresses*
+
+*Global Unicast Addresses* are like *IPv4 Public Addresses*. They must be unique over the *Internet*. The range of these addresses is all addresses with the first three bits equal to "001". By the other words the first hextet is *2000* - *3FFF* range, except the *2001:0DB8::/32* that used for documentation.
+
+*Link-Local Addresses* are addresses used in the local network. They are not routed. The range of such addresses is *FE80::/10*.
+
+*Loopback Address* performs the same purpose as the *IPv4 Loopback Address*. The *IPv6 Loopback Address* is *::1/128*.
+
+*Unspecified Address* is *0:0:0:0:0:0:0:0* or *::*. This address is not assigned to interface, but used as a source address when interface have not got the *Unicast Address*.
+
+*Unique Local Addresses* are like *IPv4 Private Addresses*. They are used in the local network and they are routed unlike the *Link-Local Addresses*.
+
+*IPv4 Embedded Addresses* are addresses of the form *::ffff:xxxx:xxxx* where *xxxx:xxxx* is the *IPv4 Address* recorded in hexadecimal. These addresses are used for devices that do not support IPv6 and provide a way to map the address space of the old version of the protocol to the address space of the new one.
+
+---
+
+**Multicast**
+
+Multicast IPv6 addresses are prefixed with *FF00::/8*. Multicast addresses can only be destination addresses, not source addresses. There are two types:
+
+- Assigned Addresses - special addresses whose purpose is predetermined
+- Solicited Addresses - other addresses that used for applied purposes
+
+*Assigned Addresses* used by different devices groups:
+
+- *FF02::1* - this group includes nodes from the local network
+- *FF02::2* - this group includes routers
+- *FF02::1:2* - this group includes *DHCPv6 servers*
+
+*Requested Addresses* created from *FF02::1:FF00:0/104* when interface uses *Unicast Address*. Last 24 bits is equal of 24 bits of *Unicast Address*. For example, interface with address *2001:0DB8:ABCD:0001:0000:0000:0123:A050* will receive traffic from the *FF02::1:FF23:A050*. *Requested Addresses* used by *NDP* (*Neighbor Discovery Protocol*) instead of *ARP*.
+
+---
+
