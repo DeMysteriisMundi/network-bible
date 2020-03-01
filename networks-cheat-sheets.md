@@ -152,8 +152,8 @@
 
 ### Models
 
-***OSI*** - conceptual model of network protocols and standards used as a general model.
-***TCP/IP*** - conceptual model of network protocols and standards used as a practical model.
+***OSI*** - Conceptual model of network protocols and standards used as a general model.
+***TCP/IP*** - Conceptual model of network protocols and standards used as a practical model.
 
 ![tcp-ip-and-osi](/home/leschev/Projects/network-cheat-sheets/images/basics/models/tcp-ip-and-osi.jpg)
 
@@ -223,8 +223,8 @@
 
 *IEEE 802.2* introduced separation of *Data Link Layer* to *MAC* and *LLC Sublayers*:
 
-- *MAC (Media Access Control)* - controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
-- *LLC (Logical Link Control)* - used for relations with *L3*. *LLC* frame may be of 3 types: *Informational*, *Managerial*, *Unnumbered*.
+- *MAC (Media Access Control)* - Controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
+- *LLC (Logical Link Control)* - Used for relations with *L3*. *LLC* frame may be of 3 types: *Informational*, *Managerial*, *Unnumbered*.
 
 #### Switching process
 
@@ -249,8 +249,8 @@ There are four base *Switching State*:
 
 *LLC Frame Types* determined by procedures described by *IEEE 802.2*. There are 3 procedures:
 
-- LLC1 - without connection and confirmation. Errors are not corrected. Used with datagrams. This procedure uses *unnumbered* frames.
-- LLC2 - with connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
+- LLC1 - Without connection and confirmation. Errors are not corrected. Used with datagrams. This procedure uses *unnumbered* frames.
+- LLC2 - With connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
 - LLC3 - without connection but with confirmation. Used when high speed and knowledge of whether control information has reached the object is needed.
 
 LLC header contains 3 fields:
@@ -259,9 +259,9 @@ LLC header contains 3 fields:
 | :----: | :----: | :-----: |
 | 8 bits | 8 bits | 8 bits  |
 
-- *DSAP* (*Destination Service Access Point*) - indicates protocol that gets the frame (on the receiving side).
-- *SSAP* (*Source Service Access Point*) - indicates protocol that sends the frame (on the receiving side).
-- *Control* - indicates if *connection-less* or *connection-oriented* frame.
+- *DSAP* (*Destination Service Access Point*) - Indicates protocol that gets the frame (on the receiving side).
+- *SSAP* (*Source Service Access Point*) - Indicates protocol that sends the frame (on the receiving side).
+- *Control* - Indicates if *connection-less* or *connection-oriented* frame.
 
 ---
 
@@ -308,29 +308,29 @@ There are several Ethernet frame types:
 
 *Ethernet II Frame* includes the next headers:
 
-- Preamble - it's necessary for physics signal synchronization
-- DA (*Destination Address*) - MAC destination address
-- SA (*Source Address*) - MAC source address
-- E-Type - type of L3 payload
-- Payload - encapsulated L3 packet. If size < 46 bytes, then filled to 46 bytes. It required for correct collisions identifying.
-- FCS (*Frame Check System*) - frame check system, codes of correction
+- *Preamble* - It's necessary for physics signal synchronization.
+- *DA (Destination Address)* - MAC destination address.
+- *SA (Source Address)* - MAC source address.
+- *E-Type* - Type of *L3 Payload*.
+- *Payload* - Encapsulated *L3 Packet*. If size < 46 bytes, then filled to 46 bytes. It required for correct *Collisions* identifying.
+- *FCS (Frame Check System)* - Frame check system, codes of correction.
 
 **Ethernet LLC**
 
 ![ethernet-llc](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet-llc.jpg)
 
-Here *LLC* header is added, described by IEEE 802.2.
+Here *LLC Header* is added, described by *IEEE 802.2*.
 
-Ethernel LLC frame includes the next headers:
+*Ethernel LLC Frame* includes the next headers:
 
-- Preamble
-- SFD (*Sequence Frame Delimiter*) - Indicates about frame beginning
-- DA
-- SA
-- Length - length from this header to the end of frame
-- LLC
-- Payload
-- FCS
+- *Preamble*
+- *SFD (Sequence Frame Delimiter)* - Indicates about frame beginning.
+- *DA*
+- *SA*
+- *Length* - length from this header to the end of frame.
+- *LLC*
+- *Payload*
+- *FCS*
 
 ---
 
@@ -338,77 +338,73 @@ Ethernel LLC frame includes the next headers:
 
 ![ethernet-llc-snap](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet-llc-snap.jpg)
 
-Here *SNAP* header is added, described by IEEE 802.2.
+Here *SNAP Header* is added, described by *IEEE 802.2*.
 
-Ethernel LLC/SNAP frame includes the next headers:
+*Ethernel LLC/SNAP Frame* includes the next headers:
 
-- Preamble
-- SFD
-- DA
-- SA
-- Length
-- LLC
-- SNAP
-- Payload
-- FCS 
+- *Preamble*
+- *SFD*
+- *DA*
+- *SA*
+- *Length*
+- *LLC*
+- *SNAP*
+- *Payload*
+- *FCS* 
 
 ---
 
 #### VLAN
 
-**VLAN** - is any broadcast domain that is partitioned and isolated in a computer network at the data link layer. It allows to make devices invisible to each other even if they connected to the one switch or make their visible to each other if they connected to the different switches. VLAN is the main mechanism for creating a logical network topology independent of its physical topology in the modern networks.
+***VLAN*** - is any *Broadcast Domain* that is partitioned and isolated in a *Computer Network* at the *Data Link Layer*. It allows to make devices invisible to each other even if they connected to the one switch or make their visible to each other if they connected to the different switches. *VLAN* is the main mechanism for creating a *Logical Network Topology* independent of its *Physical Topology* in the modern networks.
 
 Tasks:
 
-- reducing the broadcast traffic in the network
-- protection from the *ARP Spoofing*
+- Reducing the broadcast traffic in the network.
+- Protection from the *ARP Spoofing*.
 
 **Traffic Tagging**
 
-The most common way to mark this is described in the open IEEE 802.1Q standard. There are also proprietary protocols that solve similar problems, for example, the *ISL* protocol from *Cisco Systems*, but their popularity is much lower (and declining).
+The most common way to mark this is described in the *IEEE 802.1q*. There are also proprietary protocols that solve similar problems, for example, the *ISL Protocol* from *Cisco Systems*, but their popularity is much lower (and declining).
 
-Mark added to frame by adding the special *Dot1q* header front of *EType* header (in Ethernet II standard). This header contains 4 fields:
+Mark added to frame by adding the special *Dot1q* header front of *EType Header* (in *IEEE 802.3*). This header contains 4 fields:
 
 |  TPID   | Priority |  CFI  |   VID   |
 | :-----: | :------: | :---: | :-----: |
 | 16 bits |  3 bits  | 1 bit | 12 bits |
 
-- TPID (*Tag Protocol Identifier*) - identifier of tag protocol. For Dot1q used value 0x8100.
-- Priority - traffic priority
-- CFI (*Canonical Format Indicator*) - indicates to MAC address format. 0 - canonical, 1 - non-canonical.
-- VID (*VLAN Identifier*) - VLAN number
+- *TPID (Tag Protocol Identifier)* - identifier of tag protocol. For Dot1q used value 0x8100.
+- *Priority* - traffic priority.
+- *CFI (Canonical Format Indicator)* - indicates to *MAC Address* format. 0 - canonical, 1 - non-canonical.
+- *VID (VLAN Identifier)* - *VLAN* number.
 
 **Access and Trunk ports**
 
 There are 2 ports type:
 
-- Access - tagging port
-- Trunk - non-tagging port
+- *Access* - tagging port
+- *Trunk* - non-tagging port
 
-Access port links to terminal devices and transmits untagged traffic. It just removes tag when transmits frame to terminal device and adds tag when receives frame from terminal device. If VLAN not assigned to access port, then *Native VLAN* (default, but untagged VLAN) is used.
+*Access Port* links to terminal devices and transmits *Untagged Traffic*. It just removes tag when transmits frame to terminal device and adds tag when receives frame from terminal device. If *VLAN* not assigned to access port, then *Native VLAN* (default, but *Untagged VLAN*) is used.
 
-Trunk port links the network devices. This port doesn't removes the tag, it decides what have to do with received (from linked network device) frame based on frame tag. If frame is tagged and frame VLAN is equal to trunk port VLAN, then frame will be transmitted on. Untagged frames are discarded.
-
-More: http://xgu.ru/wiki/VLAN
+*Trunk Port* links the network devices. This port doesn't removes the tag, it decides what have to do with received (from linked network device) frame based on frame tag. If frame is tagged and frame *VLAN* is equal to *Trunk Port VLAN*, then *Frame* will be transmitted on. *Untagged Frames* are discarded.
 
 ---
 
 #### QinQ
 
-**QinQ** - is a double VLAN tagging, described by *IEEE 802.1AD* standard. Use the same fields as *IEEE 802.1Q* standard. *QinQ* helps to decide several problems:
+**QinQ** - is a double *VLAN Tagging*, described by *IEEE 802.1ad*. Use the same fields as *IEEE 802.1q* standard. *QinQ* helps to decide several problems:
 
-- *QinQ* expands number of VLANs from 4096 to 4096*4096
-- *QinQ* using doesn't require to coordinate VLAN policy with *ISP* (*Internet Sevice Provider*). Your and ISP's VLAN policies will be separated. Your VLAN tag (*inner tag*) will be encapsulated to ISP's VLAN tag (*outer tag*) and will be used only in your LAN. ISP's VLAN tag will be used only in ISP's LAN. It looks like VLAN tunneling. ISP's VLAN tag creates the tunnel for yours VLAN traffic.
+- *QinQ* expands number of *VLANs* from 4096 to 4096*4096
+- *QinQ* using doesn't require to coordinate *VLAN* policy with *ISP* (*Internet Sevice Provider*). Your and *ISP's VLAN* policies will be separated. Your *VLAN Tag (Inner Tag)* will be encapsulated to *ISP's VLAN tag (Outer Tag)* and will be used only in your *LAN*. *ISP's VLAN Tag* will be used only in *ISP's LAN*. It looks like *VLAN Tunneling*. *ISP's VLAN Tag* creates the tunnel for yours *VLAN Traffic*.
 
-*IEEE 802.1AD* tagging looks like:
+*IEEE 802.1ad Tagging* looks like:
 
 | Outer tag (ISP) | Inner tag (Your) |
 | :-------------: | :--------------: |
 |     4 bytes     |     24 bites     |
 
 *QinQ* using requires the increasing of *MTU* (*Maximum Transmission Unit*) of more than 4 bytes.
-
-More: https://en.wikipedia.org/wiki/IEEE_802.1ad
 
 ---
 
@@ -428,17 +424,17 @@ TODO: About Network Protocol
 - *IHL* (*Internet Header Length*) - Header length in *dword* (*32-bit words*). It indicates to beginning to *Payload* field.
 - *DSCP* (*Differentiated Services Code Point*)
 - *ECN* (*Explicit Congestion Notification*)
-- *Length* - Packet length, including *Header* and *Payload*
-- *Identification* - Fragment identification
-- *Flags* - Fragmentation options
-- *Fragment Offset* - Fragment offset from the beginning
+- *Length* - Packet length, including *Header* and *Payload*.
+- *Identification* - Fragment identification.
+- *Flags* - Fragmentation options.
+- *Fragment Offset* - Fragment offset from the beginning.
 - *TTL* (*Time To Live*) - In fact this value indicates to amount of intermediate nodes that packet can pass. Every node reduces the value by 1. When *TTL* will be equal to 0, packet will be discarded.
-- *Protocol* - *L4* protocol
-- *CRC* (*Cyclic Redundancy Code*) - Correction codes
+- *Protocol* - *L4* protocol.
+- *CRC* (*Cyclic Redundancy Code*) - Correction codes.
 - *Source IP Address*
 - *Destination IP Address*
-- *Parameters* - Debugging options
-- *Payload* - *L4 Payload*
+- *Parameters* - Debugging options.
+- *Payload* - *L4 Payload*.
 
 ---
 
@@ -494,9 +490,9 @@ x.x.x.x/16
 
 There are several types of *IPv4 Casts*:
 
-- *Unicast* - from node to the node
-- *Multicast* - from node to the node group
-- *Broadcast* - from node to every nodes
+- *Unicast* - from node to the node.
+- *Multicast* - from node to the node group.
+- *Broadcast* - from node to every nodes.
 
 There are two types of addresses:
 
@@ -586,21 +582,21 @@ The parts of hexadecimal number divided by colon are named *hextets*. The long r
 
 Pay attention to the number in the end of address, that follows by the slash symbol. It is the *Prefix* size. It is used like a subnet mask and divides the *IPv6 Address* by two parts:
 
-- *Prefix* - the network address
-- *Interface Identifier* - the node address
+- *Prefix* - The network address.
+- *Interface Identifier* - The node address.
 
 But *Prefix* also divided by two parts:
 
-- *Global Routing Prefix* - the global network address
-- *Subnet Identifier* - the subnet address
+- *Global Routing Prefix* - The global network address.
+- *Subnet Identifier* - The subnet address simplified.
 
 *Global Routing Prefix* issues by provider. *Subnet Identifier* assigned by client. *IPv6* uses *CIDR* addressing and it is allows to use  *VLSM-like* mechanism - we can change subnet size by borrowing the low bits. But it recommends to changing 4 bits to avoid the situation when the one part of hexadecimal number indicates to subnet and the other part indicates to interface.
 
 There are several *IPv6 Cast* types:
 
-- *Unicast* - from node to the node
-- *Anycast* - from node to the node from the multicast group
-- *Multicast* - from node to the node group
+- *Unicast* - From node to the node.
+- *Anycast* - From node to the node from the *Multicast Group*.
+- *Multicast* - From node to the node group.
 
 ---
 
@@ -633,14 +629,14 @@ IPv6 determines six types of *Unicast Addresses*:
 
 Multicast IPv6 addresses are prefixed with *FF00::/8*. Multicast addresses can only be destination addresses, not source addresses. There are two types:
 
-- Assigned Addresses - special addresses whose purpose is predetermined
-- Solicited Addresses - other addresses that used for applied purposes
+- Assigned Addresses - Special addresses whose purpose is predetermined.
+- Solicited Addresses - Other addresses that used for applied purposes.
 
 *Assigned Addresses* used by different devices groups:
 
-- *FF02::1* - this group includes nodes from the local network
-- *FF02::2* - this group includes routers
-- *FF02::1:2* - this group includes *DHCPv6 servers*
+- *FF02::1* - This group includes nodes from the local network.
+- *FF02::2* - This group includes routers.
+- *FF02::1:2* - This group includes *DHCPv6 servers.*
 
 *Requested Addresses* created from *FF02::1:FF00:0/104* when interface uses *Unicast Address*. Last 24 bits is equal of 24 bits of *Unicast Address*. For example, interface with address *2001:0DB8:ABCD:0001:0000:0000:0123:A050* will receive traffic from the *FF02::1:FF23:A050*. *Requested Addresses* used by *NDP* (*Neighbor Discovery Protocol*) instead of *ARP*.
 
