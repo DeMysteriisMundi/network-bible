@@ -12,31 +12,27 @@
 
 ### Organizations
 
-**ISO** - International Organization for Standardization.
-More: https://en.wikipedia.org/wiki/International_Organization_for_Standardization
+***ISO*** - International Organization for Standardization.
 
-**IEEE** *(Institute of Electrical and Electronics Engineers)* - is a professional association for electronic engineering and electrical engineering. Its objectives are the educational and technical advancement of electrical and electronic engineering, telecommunications, computer engineering and allied disciplines.
-More: https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers
+***IEEE*** *(Institute of Electrical and Electronics Engineers)* - is a professional association for electronic engineering and electrical engineering. Its objectives are the educational and technical advancement of electrical and electronic engineering, telecommunications, computer engineering and allied disciplines.
 
 ---
 
 ### Standards
 
-**IEEE 802** - is a family of IEEE standards dealing with *local area networks* and *metropolitan area networks*. The services and protocols specified in IEEE 802 map to the Data Link and Physical layers of the seven-layer OSI networking reference model.
-More: https://en.wikipedia.org/wiki/IEEE_802
+***IEEE 802*** - is a family of *IEEE Standards* dealing with *Local Area Networks* and *Metropolitan Area Networks*. The services and protocols specified in *IEEE 802* mapped in the *Data Link* and *Physical Layers* of the *Seven-Layer OSI* networking reference model.
 
-**IEEE 802.3** - ...
+***IEEE 802.3*** - ...
 
-**IEEE 802.2** - ...
+***IEEE 802.2*** - ...
 
-**IEEE 802.1Q** (or *Dot1q*) - is the networking standard that supports *virtual LANs* (or *VLANs*) on an IEEE 802.3 Ethernet network. The standard defines a system of *VLAN tagging* for Ethernet frames and the accompanying procedures to be used by bridges and switches in handling such frames. The standard also contains provisions for a quality-of-service prioritization scheme commonly known as IEEE 802.1p and defines the Generic Attribute Registration Protocol.
-More: http://xgu.ru/wiki/802.1Q
+***IEEE 802.1Q*** (or *Dot1q*) - is the standard that supports *Virtual LANs* (or *VLANs*) on an *IEEE 802.3 Ethernet Network*. The standard defines a system of *VLAN Tagging* for *Ethernet Frames* and the accompanying procedures to be used by bridges and switches in handling such *Frames*. The standard also contains provisions for a *Quality-Of-Service* prioritization scheme commonly known as *IEEE 802.1p* and defines the *Generic Attribute Registration Protocol*.
 
-**IEEE 802.1AD** (or *QinQ*) - ...
+***IEEE 802.1ad*** (or *QinQ*) - ...
 
 ---
 
-### RFC
+### RFCs
 
 ...
 
@@ -48,8 +44,8 @@ More: http://xgu.ru/wiki/802.1Q
 
 ### Topologies
 
-**Physical Topologies** (*L1*) - it is how nodes are physically placed and connected.
-**Logical Topologies** (*L2/L3*) - it is how data goes in the physical topology.
+***Physical Topologies*** (*L1*) - it is how nodes are physically placed and connected.
+***Logical Topologies*** (*L2/L3*) - it is how data goes in the physical topology.
 
 #### Bus Topology
 
@@ -57,11 +53,11 @@ More: http://xgu.ru/wiki/802.1Q
 
 **+**:
 
-- quick and simple to build
+- Quick and simple to build.
 
 **-**:
 
-- at break the whole network will fall
+- At break the whole network will fall.
 
 ---
 
@@ -71,13 +67,13 @@ More: http://xgu.ru/wiki/802.1Q
 
 **+**:
 
-- quick and simple to build
-- more stable and reliable than *Bus Topology*
-- possible to make reservation by second ring
+- Quick and simple to build.
+- More stable and reliable than *Bus Topology*.
+- Possible to make reservation by second ring.
 
 **-**:
 
-- at break the whole network will fall
+- At break the whole network will fall.
 
 ---
 
@@ -87,13 +83,13 @@ More: http://xgu.ru/wiki/802.1Q
 
 **+**:
 
-- all nodes are connected to the one central node, that works as a repeater 
-- more stable and reliable than *Bus Topology* and *Ring Topology*
-- at break the only one node will fall
+- All nodes are connected to the one central node, that works as a repeater.
+- More stable and reliable than *Bus Topology* and *Ring Topology*.
+- At break the only one node will fall.
 
 **-**:
 
-- at break with the central node the whole network will fall
+- At break with the central node the whole network will fall.
 
 ---
 
@@ -103,13 +99,13 @@ More: http://xgu.ru/wiki/802.1Q
 
 **+**:
 
-- the most reliable
+- The most reliable.
 
 **-**:
 
-- the most expensive
-- the hardest to build the big topology
-- the hardest to maintenance the big topology
+- The most expensive.
+- The hardest to build the big topology.
+- The hardest to maintenance the big topology.
 
 ---
 
@@ -119,13 +115,13 @@ More: http://xgu.ru/wiki/802.1Q
 
 **+**:
 
-- lightweight version of *Full-Mesh Topology*
+- Lightweight version of *Full-Mesh Topology*.
 
 **-**:
 
-- expensive
-- hard to build the big topology
-- hard to maintenance the big topology
+- Expensive.
+- Hard to build the big topology.
+- Hard to maintenance the big topology.
 
 ---
 
@@ -135,14 +131,14 @@ More: http://xgu.ru/wiki/802.1Q
 
 **+/-**:
 
-- is a mix of previous topologies with their advantages and disadvantages
-- beautiful
+- Is a mix of previous topologies with their advantages and disadvantages.
+- Beautiful.
 
 ---
 
 ### Network Architectures
 
-#### Three-tier architecture
+#### Three-Tier Architecture
 
 ...
 
@@ -156,8 +152,8 @@ More: http://xgu.ru/wiki/802.1Q
 
 ### Models
 
-**OSI** - conceptual model of network protocols and standards used as a general model.
-**TCP/IP** - conceptual model of network protocols and standards used as a practical model.
+***OSI*** - conceptual model of network protocols and standards used as a general model.
+***TCP/IP*** - conceptual model of network protocols and standards used as a practical model.
 
 ![tcp-ip-and-osi](/home/leschev/Projects/network-cheat-sheets/images/basics/models/tcp-ip-and-osi.jpg)
 
@@ -201,8 +197,6 @@ More: http://xgu.ru/wiki/802.1Q
 
 ...
 
-More: http://xgu.ru/wiki/%D0%A1%D0%B5%D1%82%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C_OSI
-
 ---
 
 ## Protocols, Standards and Mechanisms
@@ -219,14 +213,41 @@ More: http://xgu.ru/wiki/%D0%A1%D0%B5%D1%82%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BC%D0%BE
 
 #### About Data Link Layer
 
-Data Link layer uses *frames* as a *data unit*. *IEEE 802.2* introduced separation of Data Link layer to *MAC* and *LLC* sublayers:
+*Data Link Layer* is responsible for data packaging before the sending the one. The data link layer has three main functions:
 
-- MAC (*Media Access Control*) - controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
-- LLC (*Logical Link Control*) - used for relations with L3. LLC frame may be of 3 types: *informational*, *managerial*, *unnumbered*.
+- It handles problems that occur as a result of bit transmission errors.
+- It ensures data flows at a pace that doesn't overwhelm sending and receiving devices.
+- It permits the transmission of data to Layer 3, the *Network Layer*, where it is addressed and routed.
 
-**LLC**
+*Data Link Layer* uses the *Frames* as a *Data Unit*. To transmit *Frames*, the switch uses a *Switching Table* (or *MAC Table*). Initially, after the switch is turned on, the table is empty. The switch fills it automatically when receiving *Frames* from the nodes. When the switch receives the *Frame* from the node, it first transfers it in accordance with its rules and then it remembers the sender's *MAC Address* in the *Frame* and maps it to the port on which it was received.
 
-LLC frame types determined by procedures described by *IEEE 802.2*. There are 3 procedures:
+*IEEE 802.2* introduced separation of *Data Link Layer* to *MAC* and *LLC Sublayers*:
+
+- *MAC (Media Access Control)* - controls the access to media. Here it is set in which medium the frame is transmitted (*Token Ring*, *Ethernet*, *FDDI*).
+- *LLC (Logical Link Control)* - used for relations with *L3*. *LLC* frame may be of 3 types: *Informational*, *Managerial*, *Unnumbered*.
+
+#### Switching process
+
+There are four base *Switching State*:
+
+- *Flooding*
+- *Forwarding*
+- *Filtering*
+- *Learning*
+
+*Flooding State* used when switch receives frame with *Unknown MAC Address* (or *Unknown Unicast Frame*). Switch transmit it to the all ports, so *Frame* reaches the destination node. Also *Flooding* used when switch receives *Multicast* or *Broadcast* *Frame*.
+
+*Forwarding State* used when *Switching Table* contains record what port is located host with this *MAC Address*.
+
+*Filtering State* used if the switch receives *Frame* through the known port, and the *Destination MAC Address* is accessible through the same port (that is, the switch discards the data). The switch believes that the node has already received this *Frame*, and does not duplicate it.
+
+*Learning State* used if switch receives *Unknown Unicast Frame*. The switch recordings *MAC Address* the received *Frame* to  the *Switching Table*.
+
+---
+
+#### LLC
+
+*LLC Frame Types* determined by procedures described by *IEEE 802.2*. There are 3 procedures:
 
 - LLC1 - without connection and confirmation. Errors are not corrected. Used with datagrams. This procedure uses *unnumbered* frames.
 - LLC2 - with connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
@@ -238,51 +259,26 @@ LLC header contains 3 fields:
 | :----: | :----: | :-----: |
 | 8 bits | 8 bits | 8 bits  |
 
-- DSAP (*Destination Service Access Point*) - indicates protocol that gets the frame (on the receiving side)
-- SSAP (*Source Service Access Point*) - indicates protocol that sends the frame (on the receiving side)
-- Control - indicates if *connection-less* or *connection-oriented* frame
+- *DSAP* (*Destination Service Access Point*) - indicates protocol that gets the frame (on the receiving side).
+- *SSAP* (*Source Service Access Point*) - indicates protocol that sends the frame (on the receiving side).
+- *Control* - indicates if *connection-less* or *connection-oriented* frame.
 
 ---
 
-**LLC SNAP Extension**
+#### LLC SNAP Extension
 
-LLC header allows to use only 128 of possible L3 protocols. *SNAP* (*Subnetwork Access Protocol*) header expands number of pointed protocols, for exam	ple, for any proprietary protocols.
+*LLC Header* allows to use only 128 of possible *L3 Protocols*. *SNAP (Subnetwork Access Protocol) Header* expands number of pointed protocols, for example, for any proprietary protocols.
 
 ![snap](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/snap.jpg)
 
-SNAP header contains 2 fields:
+*SNAP Header* contains 2 fields:
 
 |  OUI   |  PID   |
 | :----: | :----: |
 | 8 bits | 8 bits |
 
-- OUI (*Organizationally Unique Identifier*) - indicates organization identifier
-- PID (*Protocol ID*) - indicates L3 protocol
-
----
-
-#### Switching Principle
-
-To transmit frames, the switch uses a switching table (or *MAC table*). Initially, after the switch is turned on, the table is empty. The switch fills it automatically when receiving frames from the hosts. When the switch receives the frame from the host, it first transfers it in accordance with its rules (described below), and then it remembers the sender's MAC address in the frame and maps it to the port on which it was received.
-
-**Base Mechanisms**
-
-Switch uses four base mechanisms to frame transmitting:
-
-- Flooding
-- Forwarding
-- Filtering
-- Learning
-
-*Flooding* mechanism used when switch receives frame with unknown *MAC* address (*unknown unicast frame*). Switch transmit it to all ports, so frame reaches the destination host. Also *Flooding* used when switch receives *multicast* or *broadcast* frame.
-
-*Forwarding* mechanism used when switching table contains record what port is located host with this *MAC* address.
-
-*Filtering* mechanism used if the switch receives frame through the specified port, and the destination *MAC* address is accessible through the same port (that is, the switch discards the data). The switch believes that the host has already received this frame, and does not duplicate it.
-
-*Learning* mechanism used if switch receives *unknown unicast frame*. The switch recordings *MAC* address the received frame to switching table.
-
-More: http://xgu.ru/wiki/VLAN#.D0.9F.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF.D1.8B_.D1.80.D0.B0.D0.B1.D0.BE.D1.82.D1.8B_.D0.BA.D0.BE.D0.BC.D0.BC.D1.83.D1.82.D0.B0.D1.82.D0.BE.D1.80.D0.B0
+- *OUI (Organizationally Unique Identifier)* - indicates organization identifier.
+- *PID (Protocol ID)* - indicates *L3 Protocol*.
 
 ---
 
@@ -302,15 +298,15 @@ More: http://xgu.ru/wiki/VLAN#.D0.9F.D1.80.D0.B8.D0.BD.D1.86.D0.B8.D0.BF.D1.8B_.
 
 There are several Ethernet frame types:
 
-- Ethernet II (IEEE 802.3)
-- Ethernet LLC (IEEE 802.3/802.2)
-- Ethernet LLC/SNAP (IEEE 802.3/802.2 SNAP)
+- *Ethernet II (IEEE 802.3)*
+- *Ethernet LLC (IEEE 802.3/802.2)*
+- *Ethernet LLC/SNAP (IEEE 802.3/802.2 SNAP)*
 
 **Ethernet II**
 
 ![ethernet2](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/data-link-layer/ethernet/ethernet2.jpg)
 
-Ethernet II frame includes the next headers:
+*Ethernet II Frame* includes the next headers:
 
 - Preamble - it's necessary for physics signal synchronization
 - DA (*Destination Address*) - MAC destination address
