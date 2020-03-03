@@ -20,7 +20,7 @@
 
 ### Standards
 
-***IEEE 802*** - is a family of *IEEE Standards* dealing with *Local Area Networks* and *Metropolitan Area Networks*. The services and protocols specified in *IEEE 802* mapped in the *Data Link* and *Physical Layers* of the *Seven-Layer OSI* networking reference model.
+***IEEE 802*** - is a family of *IEEE* standards dealing with *Local Area Networks* and *Metropolitan Area Networks*. The services and protocols specified in *IEEE 802* mapped in the *Data Link* and *Physical Layers* of the *Seven-Layer OSI* networking reference model.
 
 ***IEEE 802.3*** - ...
 
@@ -249,9 +249,9 @@ There are four base *Switching State*:
 
 *LLC Frame Types* determined by procedures described by *IEEE 802.2*. There are 3 procedures:
 
-- LLC1 - Without connection and confirmation. Errors are not corrected. Used with datagrams. This procedure uses *unnumbered* frames.
-- LLC2 - With connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
-- LLC3 - without connection but with confirmation. Used when high speed and knowledge of whether control information has reached the object is needed.
+- *LLC1* - without connection and confirmation. Errors are not corrected. Used with datagrams. This procedure uses *unnumbered* frames.
+- *LLC2* - with connection and confirmation. Errors are corrected. This procedure uses all types of frames. Used in *NetBIOS*/*NetBEUI*, *LAP-D* protocols.
+- *LLC3* - without connection but with confirmation. Used when high speed and knowledge of whether control information has reached the object is needed.
 
 LLC header contains 3 fields:
 
@@ -259,9 +259,9 @@ LLC header contains 3 fields:
 | :----: | :----: | :-----: |
 | 8 bits | 8 bits | 8 bits  |
 
-- *DSAP* (*Destination Service Access Point*) - Indicates protocol that gets the frame (on the receiving side).
-- *SSAP* (*Source Service Access Point*) - Indicates protocol that sends the frame (on the receiving side).
-- *Control* - Indicates if *connection-less* or *connection-oriented* frame.
+- *DSAP* (*Destination Service Access Point*) - indicates protocol that gets the frame (on the receiving side).
+- *SSAP* (*Source Service Access Point*) - indicates protocol that sends the frame (on the receiving side).
+- *Control* - indicates if *connection-less* or *connection-oriented* frame.
 
 ---
 
@@ -416,6 +416,8 @@ TODO: About Network Protocol
 
 #### IPv4
 
+[rfc791](https://tools.ietf.org/html/rfc791)
+
 ![ipv4](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv4.png)
 
 *IPv4 Packet* includes the next headers:
@@ -541,6 +543,8 @@ CIDR addressing uses the next private addresses ranges:
 
 #### IPv6
 
+[rfc2460](https://tools.ietf.org/html/rfc2460)
+
 *IPv6* is very different from the *IPv4*. In addition to increasing the size of the *IP Address* field, *IPv6* greatly optimizes the most of mechanisms. Look at *IPv6 Packet* structure:
 
 ![ipv6](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv6.png)
@@ -592,7 +596,7 @@ But *Prefix* also divided by two parts:
 
 *Global Routing Prefix* issues by provider. *Subnet Identifier* assigned by client. *IPv6* uses *CIDR* addressing and it is allows to use  *VLSM-like* mechanism - we can change subnet size by borrowing the low bits. But it recommends to changing 4 bits to avoid the situation when the one part of hexadecimal number indicates to subnet and the other part indicates to interface.
 
-There are several *IPv6 Cast* types:
+There are several *IPv6 Cast Types*:
 
 - *Unicast* - From node to the node.
 - *Anycast* - From node to the node from the *Multicast Group*.
@@ -634,11 +638,23 @@ Multicast IPv6 addresses are prefixed with *FF00::/8*. Multicast addresses can o
 
 *Assigned Addresses* used by different devices groups:
 
-- *FF02::1* - This group includes nodes from the local network.
-- *FF02::2* - This group includes routers.
-- *FF02::1:2* - This group includes *DHCPv6 servers.*
+- *FF02::1* - this group includes nodes from the local network.
+- *FF02::2* - this group includes routers.
+- *FF02::1:2* - this group includes *DHCPv6 servers.*
 
 *Requested Addresses* created from *FF02::1:FF00:0/104* when interface uses *Unicast Address*. Last 24 bits is equal of 24 bits of *Unicast Address*. For example, interface with address *2001:0DB8:ABCD:0001:0000:0000:0123:A050* will receive traffic from the *FF02::1:FF23:A050*. *Requested Addresses* used by *NDP* (*Neighbor Discovery Protocol*) instead of *ARP*.
+
+---
+
+TODO: ARP
+
+---
+
+TODO: NDP
+
+---
+
+TODO: SLAAC
 
 ---
 
