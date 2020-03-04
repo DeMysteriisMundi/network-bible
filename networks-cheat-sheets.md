@@ -416,7 +416,7 @@ TODO: About Network Protocol
 
 #### IPv4
 
-[rfc791](https://tools.ietf.org/html/rfc791)
+[RFC791](https://tools.ietf.org/html/rfc791) - DARPA Internet Protocol Specification
 
 ![ipv4](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/ipv4.png)
 
@@ -450,6 +450,8 @@ TODO: ECN
 
 **Fragmentation**
 
+[RFC4459](https://tools.ietf.org/html/rfc4459) - MTU and Fragmentation Issues with In-The-Network Tunneling
+
 If packet has a huge size, it's divided by several small-size fragments. This process named *Fragmentation*. Router compiles packet from the got fragments. *Fragmentation* process uses three fields:
 
 - *Identification* - fragments of one packet have the same value. Router uses it to identify belonging to one packet.
@@ -471,6 +473,11 @@ Since the number of fields in the *parameters* header can be arbitrary, several 
 ---
 
 **IP Addresses**
+
+[RFC5735](https://tools.ietf.org/html/rfc5735) - Special Use IPv4 Addresses
+[RFC5737](https://tools.ietf.org/html/rfc5737) - IPv4 Address Blocks Reserved for Documentation
+[RFC6306](https://tools.ietf.org/html/rfc6306) - Hierarchical IPv4 Framework
+[RFC6890](https://tools.ietf.org/html/rfc6890) - Special-Purpose IP Address Registries
 
 *IPv4 Address* consists of 32 bits. It's decided to represent the address by 4 octets in decimal notation as a numbers from 0 to 255 divided by dot. *IPv4 Address* consists of two parts: network number and host number. For differences network and host numbers *Subnet Mask* used.
 
@@ -510,6 +517,8 @@ There are two types of addresses:
 
 **Classful Addressing**
 
+[RFC1817](https://tools.ietf.org/html/rfc1817) - CIDR and Classful Routing
+
 ![classful-addressing](/home/leschev/Projects/network-cheat-sheets/images/protocols-standards-and-mechanisms/network-layer/ip/classful-addressing.png)
 
 By *Classful Addressing* all the address space is divided to 5 classes:
@@ -533,6 +542,9 @@ Router distinguishes classes by first bits in the address. A - 0, B - 10, C - 11
 
 **CIDR**
 
+[RFC3021](https://tools.ietf.org/html/rfc3021) - Using 31-Bit Prefixes on IPv4 Point-to-Point Links
+[RFC4632](https://tools.ietf.org/html/rfc4632) - Classless Inter-Domain Routing: The Internet Address Assignment and Aggregation Plan
+
 ***CIDR*** - IP addressing method that allows you to flexibly manage the IP address space without using the rigid framework of class addressing. Using this method allows you to economically use a limited resource of IP addresses, since it is possible to apply different subnet masks to different subnets. IP address is an array of bits. The subnet mask determines which bits in the IP address are the network address. The address block is set by specifying the starting address and subnet mask. Classless addressing is based on a *VLSM* (*Variable Length Subnet Mask*), while in class addressing, the length of the subnet mask had only 3 fixed values.
 
 CIDR addressing uses the next private addresses ranges:
@@ -543,7 +555,7 @@ CIDR addressing uses the next private addresses ranges:
 
 #### IPv6
 
-[rfc2460](https://tools.ietf.org/html/rfc2460)
+[RFC2460](https://tools.ietf.org/html/rfc2460) - Internet Protocol, Version 6 Specification
 
 *IPv6* is very different from the *IPv4*. In addition to increasing the size of the *IP Address* field, *IPv6* greatly optimizes the most of mechanisms. Look at *IPv6 Packet* structure:
 
@@ -571,6 +583,13 @@ TODO: FLOW LABEL
 ---
 
 **IPv6 Address**
+
+[RFC2732](https://tools.ietf.org/html/rfc2732) - Format for Literal IPv6 Addresses in URL's
+[RFC3484](https://tools.ietf.org/html/rfc3484) - Default Address Selection for Internet Protocol Version 6
+[RFC3513](https://tools.ietf.org/html/rfc3513) - Internet Protocol Version 6 Addressing Architecture
+[RFC3849](https://tools.ietf.org/html/rfc3849) - IPv6 Address Prefix Reserved for Documentation
+[RFC4291](https://tools.ietf.org/html/rfc4291) - IP Version 6 Addressing Architecture
+[RFC5952](https://tools.ietf.org/html/rfc5952) - A Recommendation for IPv6 Address Text Representation 
 
 *IPv6 Address* contains from 128 bits, that are recorded in hexadecimal number system:
 
@@ -606,6 +625,9 @@ There are several *IPv6 Cast Types*:
 
 **Unicast**
 
+[RFC4193](https://tools.ietf.org/html/rfc4193) - Unique Local IPv6 Unicast Addresses
+[RFC3587](https://tools.ietf.org/html/rfc3587) - IPv6 Global Unicast Address Format
+
 IPv6 determines six types of *Unicast Addresses*:
 
 - *Global Unicast Addresses*
@@ -630,6 +652,8 @@ IPv6 determines six types of *Unicast Addresses*:
 ---
 
 **Multicast**
+
+[RFC2375](https://tools.ietf.org/html/rfc2375) - IPv6 Multicast Address Assignments
 
 Multicast IPv6 addresses are prefixed with *FF00::/8*. Multicast addresses can only be destination addresses, not source addresses. There are two types:
 
